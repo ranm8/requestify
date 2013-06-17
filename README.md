@@ -30,8 +30,7 @@ POST Request in JSON:
 	httpRequest.post('http://example.com', {
 			params: {
 				hello: 'world'
-			},
-			dataType: 'json'	
+			}
 		})
 		.then(function(response) {
 			// Get the response body
@@ -48,7 +47,7 @@ POST Request in JSON:
 * `headers` {object} - (key, value) object of headers (some headers like content-length are set by default)
 * `cookies` {object} - (key, value) object of cookies to encode and serve via the request header.
 * `auth` {{ username: string, password: string }} - Adds Basic authintication header with given username and password
-* `dataType` {string} - Determines the request data type (json|form-url-encoded), this option will encode the request body according to the given dataType and will add the appropriate header.
+* `dataType` {string} - Determines the request data type (json|form-url-encoded), this option will encode the request body according to the given dataType and will add the appropriate header (defaults to json).
 
 ### httpRequest.request(url, options)
 
