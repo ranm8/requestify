@@ -106,7 +106,7 @@ var mocha = require('mocha'),
             });
 
             describe('#get()', function() {
-                it('should call #request() with then given params and method GET', function() {
+                it('should call #request() with then given body and method GET', function() {
                     httpRequest.get('http://www.wix.com', {
                         cookies: {
                             key: 'val'
@@ -123,7 +123,7 @@ var mocha = require('mocha'),
             });
 
             describe('#post()', function() {
-                it('should call #request() with then given params and method POST', function() {
+                it('should call #request() with then given body and method POST', function() {
                     httpRequest.post('http://www.wix.com', {
                         cookies: {
                             key: 'val'
@@ -140,7 +140,7 @@ var mocha = require('mocha'),
             });
 
             describe('#put()', function() {
-                it('should call #request() with then given params and method PUT', function() {
+                it('should call #request() with then given body and method PUT', function() {
                     httpRequest.put('http://www.wix.com', {
                         cookies: {
                             key: 'val'
@@ -157,7 +157,7 @@ var mocha = require('mocha'),
             });
 
             describe('#del()', function() {
-                it('should call #request() with then given params and method DELETE', function() {
+                it('should call #request() with then given body and method DELETE', function() {
                     httpRequest.del('http://www.wix.com', {
                         cookies: {
                             key: 'val'
@@ -174,16 +174,16 @@ var mocha = require('mocha'),
             });
 
             describe('#head()', function() {
-                it('should call #request() with then given params and method HEAD', function() {
+                it('should call #request() with then given body and method HEAD', function() {
                     httpRequest.head('http://www.wix.com', {
-                        params: {
+                        body: {
                             key: 'val'
                         }
                     });
 
                     expect(httpRequest.request.calledWith('http://www.wix.com', {
                         method: 'HEAD',
-                        params: {
+                        body: {
                             key: 'val'
                         }
                     })).to.equal(true);

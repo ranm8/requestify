@@ -28,7 +28,7 @@ var mocha = require('mocha'),
 
                 expect(request.url).to.equal(url);
                 expect(request.headers).to.equal(headers);
-                expect(request.params).to.equal(params);
+                expect(request.body).to.equal(params);
                 expect(request.dataType).to.equal('json');
             });
         });
@@ -91,7 +91,7 @@ var mocha = require('mocha'),
                     expect(request.getUri()).to.equal(path);
                 });
 
-                it('Should return the URI with the params as query string', function() {
+                it('Should return the URI with the body as query string', function() {
                     var params = {
                             foo: 'bar',
                             bar: 'foo'
@@ -101,7 +101,7 @@ var mocha = require('mocha'),
                     expect(request.getUri()).to.equal('/?' + queryString.encode(params));
                 });
 
-                it('Should return the URI with both params and exising query string', function() {
+                it('Should return the URI with both body and exising query string', function() {
                     var params = {
                             foo: 'bar',
                             bar: 'foo'
@@ -127,13 +127,13 @@ var mocha = require('mocha'),
             });
 
             describe('#getJsonBody()', function() {
-                it('Should return json encoded body from the constructor given params object', function() {
+                it('Should return json encoded body from the constructor given body object', function() {
                     expect(request.getJsonBody()).to.equal(JSON.stringify(params));
                 });
             });
 
             describe('#getUrlEncodedBody()', function() {
-                it('Should return URL encoded body from the constructor given params object', function() {
+                it('Should return URL encoded body from the constructor given body object', function() {
                     expect(request.getUrlEncodedBody()).to.equal(queryString.encode(params));
                 });
             });
@@ -191,7 +191,7 @@ var mocha = require('mocha'),
             });
 
             describe('#getCookiesHeader', function() {
-                it('Should return a valid cookies string with the given params', function() {
+                it('Should return a valid cookies string with the given body', function() {
                     request.cookies(cookies);
 
                     expect(request.getCookiesHeader()).to.equal('some-cookie=some-cookie-value; another-cookie=another-cookie-value; ');
@@ -223,7 +223,7 @@ var mocha = require('mocha'),
                 });
 
                 it('Should return Authorization header for username: anakin and password: skywalker', function() {
-                    var request = new Request('http://www.wix.com', 'POST', params, headers, 'json', { username: 'anakin', password: 'skywalker', type: 'Basic' });
+                    var request = new Request('http://www.wix.com', 'POST', params, headers, 'json', { username: 'anakin', password: 'skywalker' });
 
                     expect(request.getAuthorization()).to.equal('Basic YW5ha2luOnNreXdhbGtlcg==');
                 });

@@ -11,3 +11,4 @@ lib-cov
 *.swo
 node_modules/
 .idea/
+http-request.iml
