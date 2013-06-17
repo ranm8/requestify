@@ -42,22 +42,22 @@ POST Request in JSON:
 
 ### options
 
-#### method {string} 
+#### `method {string}` 
 HTTP method to use, can be one of the following methods: POST | GET | DELETE | HEAD | PUT.
 
-#### body {object|string}
+#### `body {object|string}`
 Can be either an object (key, val) or a string, will be formatted depending on the dataType property and served via response body.
 
-#### headers {object} 
+#### `headers {object}` 
 (key, value) object of headers (some headers like content-length are set by default)
 
-#### `cookies` {object} 
+#### `cookies {object}` 
 (key, value) object of cookies to encode and serve via the request header.
 
-#### auth {{ username: string, password: string }} 
+#### `auth {{ username: string, password: string }} `
 Adds Basic authintication header with given username and password
 
-#### dataType {string} 
+#### `dataType {string}` 
 
 Determines the request data type (json|form-url-encoded), this option will encode the request body according to the given dataType and will add the appropriate header (defaults to json). 
 
