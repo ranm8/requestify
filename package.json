@@ -1,5 +1,5 @@
 {
-    "name": "http-request",
+    "name": "http_request",
     "description": "http-request is a nodeJS module that simplifies HTTP request making",
     "version": "0.1.0",
 	"scripts": {
