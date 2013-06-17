@@ -1,3 +1,5 @@
+coverage.html
+.DS_Store
 lib-cov
 *.seed
 *.log
@@ -5,10 +7,7 @@ lib-cov
 *.dat
 *.out
 *.pid
-*.gz
-
-pids
-logs
-results
-
-npm-debug.log
+*.swp
+*.swo
+node_modules/
+.idea/

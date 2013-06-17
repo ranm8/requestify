@@ -217,15 +217,15 @@ var mocha = require('mocha'),
                 });
             });
 
-            describe('#getBasicAuthorization()', function() {
+            describe('#getAuthorization()', function() {
                 it('Should return null', function() {
-                    expect(request.getBasicAuthorization()).to.equal(null);
+                    expect(request.getAuthorization()).to.equal(null);
                 });
 
                 it('Should return Authorization header for username: anakin and password: skywalker', function() {
-                    var request = new Request('http://www.wix.com', 'POST', params, headers, 'json', { username: 'anakin', password: 'skywalker' });
+                    var request = new Request('http://www.wix.com', 'POST', params, headers, 'json', { username: 'anakin', password: 'skywalker', type: 'Basic' });
 
-                    expect(request.getBasicAuthorization()).to.equal('Basic YW5ha2luOnNreXdhbGtlcg==');
+                    expect(request.getAuthorization()).to.equal('Basic YW5ha2luOnNreXdhbGtlcg==');
                 });
             });
         });
