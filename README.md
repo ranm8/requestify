@@ -28,7 +28,7 @@ GET Request:
 POST Request in JSON:
 
 	httpRequest.post('http://example.com', {
-			params: {
+			body: {
 				hello: 'world'
 			}
 		})
@@ -43,7 +43,7 @@ POST Request in JSON:
 ### options
 
 * `method` {string} - HTTP method to use, can be one of the following - POST|GET|DELETE|HEAD|PUT.
-* `params` {object|string} - Can be either an object (key, val) or string, will be formatted according to the dataType property and served via response body.
+* `body` {object|string} - Can be either an object (key, val) or string, will be formatted according to the dataType property and served via response body.
 * `headers` {object} - (key, value) object of headers (some headers like content-length are set by default)
 * `cookies` {object} - (key, value) object of cookies to encode and serve via the request header.
 * `auth` {{ username: string, password: string }} - Adds Basic authintication header with given username and password
