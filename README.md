@@ -7,7 +7,7 @@ Importent to note, this module is still under development and can be unstable!
 
 ## Install
 
-	npm install http-request  
+	npm install http_request  
 
 
 ## Ease of use
@@ -16,7 +16,7 @@ http-request is extremely easy to use and always return a promise (using the gre
 
 Simply require the module and start requesting:
 
-	var httpRequest = require('http-request'); 
+	var httpRequest = require('http_request'); 
 
 GET Request:
 
