@@ -42,12 +42,26 @@ POST Request in JSON:
 
 ### options
 
-* `method` {string} - HTTP method to use, can be one of the following - POST|GET|DELETE|HEAD|PUT.
-* `body` {object|string} - Can be either an object (key, val) or string, will be formatted according to the dataType property and served via response body.
-* `headers` {object} - (key, value) object of headers (some headers like content-length are set by default)
-* `cookies` {object} - (key, value) object of cookies to encode and serve via the request header.
-* `auth` {{ username: string, password: string }} - Adds Basic authintication header with given username and password
-* `dataType` {string} - Determines the request data type (json|form-url-encoded), this option will encode the request body according to the given dataType and will add the appropriate header (defaults to json).
+#### method {string} 
+HTTP method to use, can be one of the following methods: POST | GET | DELETE | HEAD | PUT.
+
+#### body {object|string}
+Can be either an object (key, val) or a string, will be formatted depending on the dataType property and served via response body.
+
+#### headers {object} 
+(key, value) object of headers (some headers like content-length are set by default)
+
+#### `cookies` {object} 
+(key, value) object of cookies to encode and serve via the request header.
+
+#### auth {{ username: string, password: string }} 
+Adds Basic authintication header with given username and password
+
+#### dataType {string} 
+
+Determines the request data type (json|form-url-encoded), this option will encode the request body according to the given dataType and will add the appropriate header (defaults to json). 
+
+If null will be given, the body will be served as string.
 
 ### httpRequest.request(url, options)
 
@@ -55,7 +69,7 @@ Executes a custom request according to options object
 
 	httpRequest.request('https://example.com/api/foo', {
 		method: 'POST',
-		params: {
+		body: {
 			foo: 'bar'
 			bar: 'foo'
 		},
@@ -99,7 +113,7 @@ Exceutes a GET method request
 Exceutes a POST method request
 
 	httpRequest.post('http://example.com', {
-		params: {
+		body: {
 			hello: 'world'
 		}
 	})
@@ -114,7 +128,7 @@ Exceutes a POST method request
 Exceutes a PUT method request
 
 	httpRequest.put('http://example.com', {
-		params: 'some file content',
+		body: 'some file content',
 		dataType: null	
 	})
 	.then(function(response) {
@@ -138,7 +152,7 @@ Exceutes a DELETE method request
 Exceutes a HEAD method request
 	
 	httpRequest.head('http://example.com').then(function(response) {
-		// Get the response body
+		// Get the response code
 		response.getCode();
 	});
 
