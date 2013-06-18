@@ -1,4 +1,4 @@
-Requestify - Client for simplifying node HTTP request making [![Build Status](https://secure.travis-ci.org/ranm8/http-request.png?branch=master)](http://travis-ci.org/ranm8/http-request)
+Requestify - Client for simplifying node HTTP request making [![Build Status](https://secure.travis-ci.org/ranm8/requestify.png?branch=master)](http://travis-ci.org/ranm8/requestify)
 ==============================================
 
 http-request is a nodeJS http client that simplifies HTTP request making.
