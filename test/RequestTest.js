@@ -31,13 +31,13 @@ var mocha = require('mocha'),
                         dataType: 'json',
                         cookies: {},
                         auth: {},
-                        timeout: 60
                     });
 
                 expect(request.url).to.equal(url);
                 expect(request.headers).to.equal(headers);
                 expect(request.body).to.equal(params);
                 expect(request.dataType).to.equal('json');
+                expect(request.timeout).to.equal(30000); // default timeout
             });
         });
 
