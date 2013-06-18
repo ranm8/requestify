@@ -1,7 +1,7 @@
 {
     "name": "requestify",
-    "description": "requestify aims to simplify HTTP request making using nodeJS",
-    "version": "0.1.2",
+    "description": "Simplifies node HTTP request making.",
+    "version": "0.1.3",
 	"scripts": {
 		"test": "mocha -R spec"
 	},
