@@ -43,29 +43,29 @@
 
 <p>Simply require the module and start requesting:</p>
 
-<pre><code>var httpRequest = require('http_request'); 
-</code></pre>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">httpRequest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'http_request'</span><span class="p">);</span> 
+</pre></div>
 
 <p>GET Request:</p>
 
-<pre><code>httpRequest.get('http://example.com').then(function(response) {
-    // Get the response body
-    response.getBody();
-});
-</code></pre>
+<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the response body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
 
 <p>POST Request in JSON:</p>
 
-<pre><code>httpRequest.post('http://example.com', {
-        body: {
-            hello: 'world'
-        }
-    })
-    .then(function(response) {
-        // Get the response body
-        response.getBody();
-    });
-</code></pre>
+<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">hello</span><span class="o">:</span> <span class="s1">'world'</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Get the response body</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
+    <span class="p">});</span>
+</pre></div>
 
 <h2>
 <a name="api-reference" class="anchor" href="#api-reference"><span class="octicon octicon-link"></span></a>API Reference</h2>
@@ -116,102 +116,102 @@
 
 <p>Executes a custom request according to options object</p>
 
-<pre><code>httpRequest.request('https://example.com/api/foo', {
-    method: 'POST',
-    body: {
-        foo: 'bar'
-        bar: 'foo'
-    },
-    headers: {
-        'X-Forwarded-By': 'me'
-    },
-    cookies: {
-        mySession: 'some cookie value'
-    },
-    auth: {
-        username: 'foo',
-        password: 'bar'
-    },
-    dataType: 'json'        
-})
-.then(function(response) {
-    // get the response body
-    response.getBody();
+<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'https://example.com/api/foo'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+    <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span>
+        <span class="nx">bar</span><span class="o">:</span> <span class="s1">'foo'</span>
+    <span class="p">},</span>
+    <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s1">'X-Forwarded-By'</span><span class="o">:</span> <span class="s1">'me'</span>
+    <span class="p">},</span>
+    <span class="nx">cookies</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">mySession</span><span class="o">:</span> <span class="s1">'some cookie value'</span>
+    <span class="p">},</span>
+    <span class="nx">auth</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">username</span><span class="o">:</span> <span class="s1">'foo'</span><span class="p">,</span>
+        <span class="nx">password</span><span class="o">:</span> <span class="s1">'bar'</span>
+    <span class="p">},</span>
+    <span class="nx">dataType</span><span class="o">:</span> <span class="s1">'json'</span>        
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// get the response body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
 
-    // get the response headers
-    response.getHeaders();
+    <span class="c1">// get the response headers</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getHeaders</span><span class="p">();</span>
 
-    // get specific response header
-    response.getHeader('Accept');
+    <span class="c1">// get specific response header</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getHeader</span><span class="p">(</span><span class="s1">'Accept'</span><span class="p">);</span>
 
-    // get the code
-    response.getCode();
-});
-</code></pre>
+    <span class="c1">// get the code</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getCode</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
 
 <h3>
 <a name="httprequestgeturl-options" class="anchor" href="#httprequestgeturl-options"><span class="octicon octicon-link"></span></a>httpRequest.get(url, options)</h3>
 
 <p>Exceutes a GET method request</p>
 
-<pre><code>httpRequest.get('http://example.com').then(function(response) {
-    // Get the response body
-    response.getBody();
-});
-</code></pre>
+<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the response body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
 
 <h3>
 <a name="httprequestposturl-options" class="anchor" href="#httprequestposturl-options"><span class="octicon octicon-link"></span></a>httpRequest.post(url, options)</h3>
 
 <p>Exceutes a POST method request</p>
 
-<pre><code>httpRequest.post('http://example.com', {
-    body: {
-        hello: 'world'
-    }
-})
-.then(function(response) {
-    // Get the response body
-    response.getBody();
-});
-</code></pre>
+<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">hello</span><span class="o">:</span> <span class="s1">'world'</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the response body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
 
 <h3>
 <a name="httprequestputurl-options" class="anchor" href="#httprequestputurl-options"><span class="octicon octicon-link"></span></a>httpRequest.put(url, options)</h3>
 
 <p>Exceutes a PUT method request</p>
 
-<pre><code>httpRequest.put('http://example.com', {
-    body: 'some file content',
-    dataType: null  
-})
-.then(function(response) {
-    // Get the response body
-    response.getBody();
-});
-</code></pre>
+<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="s1">'some file content'</span><span class="p">,</span>
+        <span class="nx">dataType</span><span class="o">:</span> <span class="kc">null</span>  
+    <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the response body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
 
 <h3>
 <a name="httprequestdelurl-options" class="anchor" href="#httprequestdelurl-options"><span class="octicon octicon-link"></span></a>httpRequest.del(url, options)</h3>
 
 <p>Exceutes a DELETE method request</p>
 
-<pre><code>httpRequest.del('http://example.com').then(function(response) {
-    // Get the response body
-    response.getBody();
-});
-</code></pre>
+<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">del</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the response body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
 
 <h3>
 <a name="httprequestheadurl-options" class="anchor" href="#httprequestheadurl-options"><span class="octicon octicon-link"></span></a>httpRequest.head(url, options)</h3>
 
 <p>Exceutes a HEAD method request</p>
 
-<pre><code>httpRequest.head('http://example.com').then(function(response) {
-    // Get the response code
-    response.getCode();
-});
-</code></pre>
+<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">head</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Get the response code</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">getCode</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
 
 <h2>
 <a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>Running Tests</h2>
