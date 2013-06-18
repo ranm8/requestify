@@ -38,7 +38,7 @@ POST Request in JSON:
 		});
 
 
-## API
+## API Reference
 
 ### options
 
