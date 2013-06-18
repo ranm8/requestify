@@ -1,16 +1,13 @@
-Requestify - Client for simplifying node HTTP request making [![Build Status](https://secure.travis-ci.org/ranm8/requestify.png?branch=master)](http://travis-ci.org/ranm8/requestify)
+Requestify - Simplifies HTTP request making using node [![Build Status](https://secure.travis-ci.org/ranm8/requestify.png?branch=master)](http://travis-ci.org/ranm8/requestify)
 ==============================================
-
-http-request is a nodeJS http client that simplifies HTTP request making.
 
 ## Installation
 
 	npm install requestify  
 
-
 ## How to use?
 
-requestify is extremely easy to use and always return a promise (using the amazing Q module)...
+Requestify is extremely easy to use and always return a promise (using the amazing Q module)...
 
 Simply require the module and start requesting:
 
