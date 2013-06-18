@@ -16,8 +16,9 @@ http-request is extremely easy to use and always return a promise (using the gre
 
 Simply require the module and start requesting:
 
-	var httpRequest = require('http_request'); 
-
+``` javascript
+var httpRequest = require('http_request'); 
+```
 GET Request:
 
 	httpRequest.get('http://example.com').then(function(response) {
