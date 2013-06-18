@@ -58,14 +58,6 @@ var mocha = require('mocha'),
                 httpsStub = null;
             });
 
-            it('Should throw an exception if method is not supported', function() {
-                expect(function() {
-                    httpRequest.request('http://google.com', {
-                        method: 'PATCH'
-                    });
-                }).to.throw(Error, 'Method PATCH is not supported');
-            });
-
             it('Should return a promise', function() {
                 httpRequest.request('http://wix.com', {
                     method: 'POST',
