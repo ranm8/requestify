@@ -1,7 +1,7 @@
 http-request - Simplifies nodeJS HTTP requests [![Build Status](https://secure.travis-ci.org/ranm8/http-request.png?branch=master)](http://travis-ci.org/ranm8/http-request)
 ==============================================
 
-http-request is a nodeJS http requests client that simplifies HTTP request making.
+http-request is a nodeJS http client that simplifies HTTP request making.
 
 Importent to note, this module is still under development and can be unstable!
 
