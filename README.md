@@ -28,16 +28,17 @@ GET Request:
 
 POST Request in JSON:
 
-	httpRequest.post('http://example.com', {
-			body: {
-				hello: 'world'
-			}
-		})
-		.then(function(response) {
-			// Get the response body
-			response.getBody();
-		});
-
+``` javascript
+httpRequest.post('http://example.com', {
+		body: {
+			hello: 'world'
+		}
+	})
+	.then(function(response) {
+		// Get the response body
+		response.getBody();
+	});
+```
 
 ## API Reference
 
@@ -68,95 +69,99 @@ If null will be given, the body will be served as string.
 
 Executes a custom request according to options object
 
-	httpRequest.request('https://example.com/api/foo', {
-		method: 'POST',
-		body: {
-			foo: 'bar'
-			bar: 'foo'
-		},
-		headers: {
-			'X-Forwarded-By': 'me'
-		},
-		cookies: {
-			mySession: 'some cookie value'
-		},
-		auth: {
-			username: 'foo',
-			password: 'bar'
-		},
-		dataType: 'json'		
-	})
-	.then(function(response) {
-		// get the response body
-		response.getBody();
-		
-		// get the response headers
-		response.getHeaders();
-		
-		// get specific response header
-		response.getHeader('Accept');
-		
-		// get the code
-		response.getCode();
-	});
+``` javascript
+httpRequest.request('https://example.com/api/foo', {
+	method: 'POST',
+	body: {
+		foo: 'bar'
+		bar: 'foo'
+	},
+	headers: {
+		'X-Forwarded-By': 'me'
+	},
+	cookies: {
+		mySession: 'some cookie value'
+	},
+	auth: {
+		username: 'foo',
+		password: 'bar'
+	},
+	dataType: 'json'		
+})
+.then(function(response) {
+	// get the response body
+	response.getBody();
 
+   	// get the response headers
+ 	response.getHeaders();
+
+ 	// get specific response header
+ 	response.getHeader('Accept');
+ 
+ 	// get the code
+ 	response.getCode();
+});
+```
 ### httpRequest.get(url, options)
 
 Exceutes a GET method request
-
-	httpRequest.get('http://example.com').then(function(response) {
-		// Get the response body
-		response.getBody();
-	});
-
+``` javascript
+httpRequest.get('http://example.com').then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
 ### httpRequest.post(url, options)
 
 Exceutes a POST method request
-
-	httpRequest.post('http://example.com', {
-		body: {
-			hello: 'world'
-		}
-	})
-	.then(function(response) {
-		// Get the response body
-		response.getBody();
-	});
-
+``` javascript
+httpRequest.post('http://example.com', {
+	body: {
+		hello: 'world'
+	}
+})
+.then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
 
 ### httpRequest.put(url, options)
 
 Exceutes a PUT method request
 
-	httpRequest.put('http://example.com', {
+``` javascript
+httpRequest.put('http://example.com', {
 		body: 'some file content',
 		dataType: null	
 	})
 	.then(function(response) {
-		// Get the response body
-		response.getBody();
-	});
-
+	// Get the response body
+	response.getBody();
+});
+```
 
 ### httpRequest.del(url, options)
 
 Exceutes a DELETE method request
 
-	httpRequest.del('http://example.com').then(function(response) {
-		// Get the response body
-		response.getBody();
-	});
-
+``` javascript
+httpRequest.del('http://example.com').then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
 
 ### httpRequest.head(url, options)
 
 Exceutes a HEAD method request
-	
-	httpRequest.head('http://example.com').then(function(response) {
-		// Get the response code
-		response.getCode();
-	});
 
+``` javascript
+httpRequest.head('http://example.com').then(function(response) {
+	// Get the response code
+	response.getCode();
+});
+```
 
 ## Running Tests
 
