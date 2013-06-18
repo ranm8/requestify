@@ -30,14 +30,14 @@
       <section id="main_content">
         <p><a href="http://travis-ci.org/ranm8/http-request"><img src="https://secure.travis-ci.org/ranm8/http-request.png?branch=master" alt="Build Status"></a></p>
 
-<h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
 
 <pre><code>npm install http_request  
 </code></pre>
 
-<h2>
-<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use?</h2>
+<h1>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use?</h1>
 
 <p>http-request is extremely easy to use and always return a promise (using the great Q module)...</p>
 
@@ -67,52 +67,52 @@
     <span class="p">});</span>
 </pre></div>
 
+<h1>
+<a name="api-reference" class="anchor" href="#api-reference"><span class="octicon octicon-link"></span></a>API Reference</h1>
+
 <h2>
-<a name="api-reference" class="anchor" href="#api-reference"><span class="octicon octicon-link"></span></a>API Reference</h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>options</h2>
 
 <h3>
-<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>options</h3>
-
-<h4>
 <a name="method-string" class="anchor" href="#method-string"><span class="octicon octicon-link"></span></a><code>method {string}</code>
-</h4>
+</h3>
 
 <p>HTTP method to use, can be any valid HTTP method (e.g. POST, GET, DELETE, HEAD, PUT, etc.).</p>
 
-<h4>
+<h3>
 <a name="body-objectstring" class="anchor" href="#body-objectstring"><span class="octicon octicon-link"></span></a><code>body {object|string}</code>
-</h4>
+</h3>
 
 <p>Can be either an object (key, val) or a string, will be formatted depending on the dataType property and served via response body.</p>
 
-<h4>
+<h3>
 <a name="headers-object" class="anchor" href="#headers-object"><span class="octicon octicon-link"></span></a><code>headers {object}</code>
-</h4>
+</h3>
 
 <p>(key, value) object of headers (some headers like content-length are set by default)</p>
 
-<h4>
+<h3>
 <a name="cookies-object" class="anchor" href="#cookies-object"><span class="octicon octicon-link"></span></a><code>cookies {object}</code>
-</h4>
+</h3>
 
 <p>(key, value) object of cookies to encode and serve via the request header.</p>
 
-<h4>
+<h3>
 <a name="auth--username-string-password-string-" class="anchor" href="#auth--username-string-password-string-"><span class="octicon octicon-link"></span></a><code>auth {{ username: string, password: string }}</code>
-</h4>
+</h3>
 
 <p>Adds Basic authintication header with given username and password</p>
 
-<h4>
+<h3>
 <a name="datatype-string" class="anchor" href="#datatype-string"><span class="octicon octicon-link"></span></a><code>dataType {string}</code>
-</h4>
+</h3>
 
 <p>Determines the request data type (json|form-url-encoded), this option will encode the request body according to the given dataType and will add the appropriate header (defaults to json). </p>
 
 <p>If null will be given, the body will be served as string.</p>
 
-<h3>
-<a name="httprequestrequesturl-options" class="anchor" href="#httprequestrequesturl-options"><span class="octicon octicon-link"></span></a>httpRequest.request(url, options)</h3>
+<h2>
+<a name="httprequestrequesturl-options" class="anchor" href="#httprequestrequesturl-options"><span class="octicon octicon-link"></span></a>httpRequest.request(url, options)</h2>
 
 <p>Executes a custom request according to options object</p>
 
@@ -149,8 +149,8 @@
 <span class="p">});</span>
 </pre></div>
 
-<h3>
-<a name="httprequestgeturl-options" class="anchor" href="#httprequestgeturl-options"><span class="octicon octicon-link"></span></a>httpRequest.get(url, options)</h3>
+<h2>
+<a name="httprequestgeturl-options" class="anchor" href="#httprequestgeturl-options"><span class="octicon octicon-link"></span></a>httpRequest.get(url, options)</h2>
 
 <p>Exceutes a GET method request</p>
 
@@ -160,8 +160,8 @@
 <span class="p">});</span>
 </pre></div>
 
-<h3>
-<a name="httprequestposturl-options" class="anchor" href="#httprequestposturl-options"><span class="octicon octicon-link"></span></a>httpRequest.post(url, options)</h3>
+<h2>
+<a name="httprequestposturl-options" class="anchor" href="#httprequestposturl-options"><span class="octicon octicon-link"></span></a>httpRequest.post(url, options)</h2>
 
 <p>Exceutes a POST method request</p>
 
@@ -176,8 +176,8 @@
 <span class="p">});</span>
 </pre></div>
 
-<h3>
-<a name="httprequestputurl-options" class="anchor" href="#httprequestputurl-options"><span class="octicon octicon-link"></span></a>httpRequest.put(url, options)</h3>
+<h2>
+<a name="httprequestputurl-options" class="anchor" href="#httprequestputurl-options"><span class="octicon octicon-link"></span></a>httpRequest.put(url, options)</h2>
 
 <p>Exceutes a PUT method request</p>
 
@@ -191,8 +191,8 @@
 <span class="p">});</span>
 </pre></div>
 
-<h3>
-<a name="httprequestdelurl-options" class="anchor" href="#httprequestdelurl-options"><span class="octicon octicon-link"></span></a>httpRequest.del(url, options)</h3>
+<h2>
+<a name="httprequestdelurl-options" class="anchor" href="#httprequestdelurl-options"><span class="octicon octicon-link"></span></a>httpRequest.del(url, options)</h2>
 
 <p>Exceutes a DELETE method request</p>
 
@@ -202,8 +202,8 @@
 <span class="p">});</span>
 </pre></div>
 
-<h3>
-<a name="httprequestheadurl-options" class="anchor" href="#httprequestheadurl-options"><span class="octicon octicon-link"></span></a>httpRequest.head(url, options)</h3>
+<h2>
+<a name="httprequestheadurl-options" class="anchor" href="#httprequestheadurl-options"><span class="octicon octicon-link"></span></a>httpRequest.head(url, options)</h2>
 
 <p>Exceutes a HEAD method request</p>
 
@@ -213,8 +213,8 @@
 <span class="p">});</span>
 </pre></div>
 
-<h2>
-<a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>Running Tests</h2>
+<h1>
+<a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>Running Tests</h1>
 
 <p>To run the test suite first install the development dependencies:</p>
 
@@ -226,8 +226,8 @@
 <pre><code>$ npm test
 </code></pre>
 
-<h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p>The MIT License (MIT)</p>
 
