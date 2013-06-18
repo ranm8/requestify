@@ -8,47 +8,47 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>http-request by ranm8</title>
+    <title>Requestify by ranm8</title>
   </head>
 
   <body>
 
     <header>
       <div class="container">
-        <h1>http-request</h1>
-        <h2>http-request is a nodeJS http client that simplifies HTTP request making.</h2>
+        <h1>Requestify</h1>
+        <h2>Simplifies HTTP request making using node</h2>
 
         <section id="downloads">
-          <a href="https://github.com/ranm8/http-request/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/ranm8/http-request/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/ranm8/http-request" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+          <a href="https://github.com/ranm8/requestify/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/ranm8/requestify/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/ranm8/requestify" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
       </div>
     </header>
 
     <div class="container">
       <section id="main_content">
-        <p><a href="http://travis-ci.org/ranm8/http-request"><img src="https://secure.travis-ci.org/ranm8/http-request.png?branch=master" alt="Build Status"></a></p>
+        <p><a href="http://travis-ci.org/ranm8/requestify"><img src="https://secure.travis-ci.org/ranm8/requestify.png?branch=master" alt="Build Status"></a></p>
 
 <h1>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
 
-<pre><code>npm install http_request  
+<pre><code>npm install requestify  
 </code></pre>
 
 <h1>
 <a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use?</h1>
 
-<p>http-request is extremely easy to use and always return a promise (using the great Q module)...</p>
+<p>Requestify is extremely easy to use and always return a promise (using the amazing Q module)...</p>
 
 <p>Simply require the module and start requesting:</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">httpRequest</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'http_request'</span><span class="p">);</span> 
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">requestify</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'requestify'</span><span class="p">);</span> 
 </pre></div>
 
 <p>GET Request:</p>
 
-<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
 <span class="p">});</span>
@@ -56,7 +56,7 @@
 
 <p>POST Request in JSON:</p>
 
-<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
         <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
             <span class="nx">hello</span><span class="o">:</span> <span class="s1">'world'</span>
         <span class="p">}</span>
@@ -118,11 +118,11 @@
 <p>Set a timeout (in milliseconds) for the request.</p>
 
 <h2>
-<a name="httprequestrequesturl-options" class="anchor" href="#httprequestrequesturl-options"><span class="octicon octicon-link"></span></a>httpRequest.request(url, options)</h2>
+<a name="requestifyrequesturl-options" class="anchor" href="#requestifyrequesturl-options"><span class="octicon octicon-link"></span></a>requestify.request(url, options)</h2>
 
 <p>Executes a custom request according to options object</p>
 
-<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'https://example.com/api/foo'</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'https://example.com/api/foo'</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">method</span><span class="o">:</span> <span class="s1">'POST'</span><span class="p">,</span>
     <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">foo</span><span class="o">:</span> <span class="s1">'bar'</span>
@@ -156,22 +156,22 @@
 </pre></div>
 
 <h2>
-<a name="httprequestgeturl-options" class="anchor" href="#httprequestgeturl-options"><span class="octicon octicon-link"></span></a>httpRequest.get(url, options)</h2>
+<a name="requestifygeturl-options" class="anchor" href="#requestifygeturl-options"><span class="octicon octicon-link"></span></a>requestify.get(url, options)</h2>
 
 <p>Exceutes a GET method request</p>
 
-<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
 <span class="p">});</span>
 </pre></div>
 
 <h2>
-<a name="httprequestposturl-options" class="anchor" href="#httprequestposturl-options"><span class="octicon octicon-link"></span></a>httpRequest.post(url, options)</h2>
+<a name="requestifyposturl-options" class="anchor" href="#requestifyposturl-options"><span class="octicon octicon-link"></span></a>requestify.post(url, options)</h2>
 
 <p>Exceutes a POST method request</p>
 
-<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">hello</span><span class="o">:</span> <span class="s1">'world'</span>
     <span class="p">}</span>
@@ -183,11 +183,11 @@
 </pre></div>
 
 <h2>
-<a name="httprequestputurl-options" class="anchor" href="#httprequestputurl-options"><span class="octicon octicon-link"></span></a>httpRequest.put(url, options)</h2>
+<a name="requestifyputurl-options" class="anchor" href="#requestifyputurl-options"><span class="octicon octicon-link"></span></a>requestify.put(url, options)</h2>
 
 <p>Exceutes a PUT method request</p>
 
-<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
         <span class="nx">body</span><span class="o">:</span> <span class="s1">'some file content'</span><span class="p">,</span>
         <span class="nx">dataType</span><span class="o">:</span> <span class="kc">null</span>  
     <span class="p">})</span>
@@ -198,22 +198,22 @@
 </pre></div>
 
 <h2>
-<a name="httprequestdelurl-options" class="anchor" href="#httprequestdelurl-options"><span class="octicon octicon-link"></span></a>httpRequest.del(url, options)</h2>
+<a name="requestifydelurl-options" class="anchor" href="#requestifydelurl-options"><span class="octicon octicon-link"></span></a>requestify.del(url, options)</h2>
 
 <p>Exceutes a DELETE method request</p>
 
-<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">del</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">del</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
 <span class="p">});</span>
 </pre></div>
 
 <h2>
-<a name="httprequestheadurl-options" class="anchor" href="#httprequestheadurl-options"><span class="octicon octicon-link"></span></a>httpRequest.head(url, options)</h2>
+<a name="requestifyheadurl-options" class="anchor" href="#requestifyheadurl-options"><span class="octicon octicon-link"></span></a>requestify.head(url, options)</h2>
 
 <p>Exceutes a HEAD method request</p>
 
-<div class="highlight"><pre><span class="nx">httpRequest</span><span class="p">.</span><span class="nx">head</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">head</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response code</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getCode</span><span class="p">();</span>
 <span class="p">});</span>
