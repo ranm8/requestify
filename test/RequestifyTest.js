@@ -2,29 +2,29 @@ var mocha = require('mocha'),
     sinon = require('sinon'),
     expect = require('chai').expect,
     rewire = require('rewire'),
-    httpRequest = rewire('../lib/HttpRequest.js'),
+    requestify = rewire('../lib/Requestify.js'),
     Q = require('q'),
     queryString = require('querystring');
 
 (function(global, undefined) {
     'use strict';
 
-    describe('HttpRequest', function() {
+    describe('Requestify', function() {
 
         afterEach(function() {
-            httpRequest.responseEncoding('utf8');
+            requestify.responseEncoding('utf8');
         });
 
         describe('#responseEncoding()', function() {
 
             it('Should return utf8 by default', function() {
-                expect(httpRequest.responseEncoding()).to.equal('utf8');
+                expect(requestify.responseEncoding()).to.equal('utf8');
             });
 
             it('Should set the new encoding and return it on request', function() {
-                httpRequest.responseEncoding('newEncoding');
+                requestify.responseEncoding('newEncoding');
 
-                expect(httpRequest.responseEncoding()).to.equal('newEncoding');
+                expect(requestify.responseEncoding()).to.equal('newEncoding');
             });
         });
 
@@ -43,11 +43,11 @@ var mocha = require('mocha'),
                     end: function() {}
                 });
 
-                httpRequest.__set__('http', {
+                requestify.__set__('http', {
                     request: httpStub
                 });
 
-                httpRequest.__set__('https', {
+                requestify.__set__('https', {
                     request: httpsStub
                 });
 
@@ -59,14 +59,14 @@ var mocha = require('mocha'),
             });
 
             it('Should return a promise', function() {
-                httpRequest.request('http://wix.com', {
+                requestify.request('http://wix.com', {
                     method: 'POST',
                     dataType: 'json'
                 });
             });
 
             it('Should call https module since the request is https: protocol', function() {
-                httpRequest.request('https://wix.com', {
+                requestify.request('https://wix.com', {
                     method: 'POST'
                 });
 
@@ -74,7 +74,7 @@ var mocha = require('mocha'),
             });
 
             it('Should call http module since request is http: protocol', function() {
-                httpRequest.request('http://wix.com', {
+                requestify.request('http://wix.com', {
                     method: 'POST'
                 });
 
@@ -82,7 +82,7 @@ var mocha = require('mocha'),
             });
 
             it('Should return a promise object', function() {
-                expect(httpRequest.request('https://wix.com', {
+                expect(requestify.request('https://wix.com', {
                     method: 'POST'
                 })).to.have.property('then');
             });
@@ -90,22 +90,22 @@ var mocha = require('mocha'),
 
         describe('Method specific public methods', function() {
             beforeEach(function() {
-                httpRequest.request = sinon.stub();
+                requestify.request = sinon.stub();
             });
 
             afterEach(function() {
-               httpRequest.request = null;
+               requestify.request = null;
             });
 
             describe('#get()', function() {
                 it('should call #request() with then given body and method GET', function() {
-                    httpRequest.get('http://www.wix.com', {
+                    requestify.get('http://www.wix.com', {
                         cookies: {
                             key: 'val'
                         }
                     });
 
-                    expect(httpRequest.request.calledWith('http://www.wix.com', {
+                    expect(requestify.request.calledWith('http://www.wix.com', {
                         method: 'GET',
                         cookies: {
                             key: 'val'
@@ -116,13 +116,13 @@ var mocha = require('mocha'),
 
             describe('#post()', function() {
                 it('should call #request() with then given body and method POST', function() {
-                    httpRequest.post('http://www.wix.com', {
+                    requestify.post('http://www.wix.com', {
                         cookies: {
                             key: 'val'
                         }
                     });
 
-                    expect(httpRequest.request.calledWith('http://www.wix.com', {
+                    expect(requestify.request.calledWith('http://www.wix.com', {
                         method: 'POST',
                         cookies: {
                             key: 'val'
@@ -133,13 +133,13 @@ var mocha = require('mocha'),
 
             describe('#put()', function() {
                 it('should call #request() with then given body and method PUT', function() {
-                    httpRequest.put('http://www.wix.com', {
+                    requestify.put('http://www.wix.com', {
                         cookies: {
                             key: 'val'
                         }
                     });
 
-                    expect(httpRequest.request.calledWith('http://www.wix.com', {
+                    expect(requestify.request.calledWith('http://www.wix.com', {
                         method: 'PUT',
                         cookies: {
                             key: 'val'
@@ -150,13 +150,13 @@ var mocha = require('mocha'),
 
             describe('#del()', function() {
                 it('should call #request() with then given body and method DELETE', function() {
-                    httpRequest.del('http://www.wix.com', {
+                    requestify.del('http://www.wix.com', {
                         cookies: {
                             key: 'val'
                         }
                     });
 
-                    expect(httpRequest.request.calledWith('http://www.wix.com', {
+                    expect(requestify.request.calledWith('http://www.wix.com', {
                         method: 'DELETE',
                         cookies: {
                             key: 'val'
@@ -167,13 +167,13 @@ var mocha = require('mocha'),
 
             describe('#head()', function() {
                 it('should call #request() with then given body and method HEAD', function() {
-                    httpRequest.head('http://www.wix.com', {
+                    requestify.head('http://www.wix.com', {
                         body: {
                             key: 'val'
                         }
                     });
 
-                    expect(httpRequest.request.calledWith('http://www.wix.com', {
+                    expect(requestify.request.calledWith('http://www.wix.com', {
                         method: 'HEAD',
                         body: {
                             key: 'val'

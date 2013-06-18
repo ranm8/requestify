@@ -1,28 +1,26 @@
-http-request - Simplifies nodeJS HTTP requests [![Build Status](https://secure.travis-ci.org/ranm8/http-request.png?branch=master)](http://travis-ci.org/ranm8/http-request)
+Requestify - HTTP client for simplifying node HTTP request making [![Build Status](https://secure.travis-ci.org/ranm8/http-request.png?branch=master)](http://travis-ci.org/ranm8/http-request)
 ==============================================
 
 http-request is a nodeJS http client that simplifies HTTP request making.
 
-Importent to note, this module is still under development and can be unstable!
-
 ## Installation
 
-	npm install http_request  
+	npm install requestify  
 
 
 ## How to use?
 
-http-request is extremely easy to use and always return a promise (using the great Q module)...
+requestify is extremely easy to use and always return a promise (using the great Q module)...
 
 Simply require the module and start requesting:
 
 ``` javascript
-var httpRequest = require('http_request'); 
+var requestify = require('requestify'); 
 ```
 GET Request:
 
 ``` javascript
-httpRequest.get('http://example.com').then(function(response) {
+requestify.get('http://example.com').then(function(response) {
 	// Get the response body
 	response.getBody();
 });
@@ -31,7 +29,7 @@ httpRequest.get('http://example.com').then(function(response) {
 POST Request in JSON:
 
 ``` javascript
-httpRequest.post('http://example.com', {
+requestify.post('http://example.com', {
 		body: {
 			hello: 'world'
 		}
@@ -69,13 +67,12 @@ If null will be given, the body will be served as string.
 #### `timeout {number} `
 Set a timeout (in milliseconds) for the request.
 
-
-### httpRequest.request(url, options)
+### requestify.request(url, options)
 
 Executes a custom request according to options object
 
 ``` javascript
-httpRequest.request('https://example.com/api/foo', {
+requestify.request('https://example.com/api/foo', {
 	method: 'POST',
 	body: {
 		foo: 'bar'
@@ -107,20 +104,20 @@ httpRequest.request('https://example.com/api/foo', {
  	response.getCode();
 });
 ```
-### httpRequest.get(url, options)
+### requestify.get(url, options)
 
 Exceutes a GET method request
 ``` javascript
-httpRequest.get('http://example.com').then(function(response) {
+requestify.get('http://example.com').then(function(response) {
 	// Get the response body
 	response.getBody();
 });
 ```
-### httpRequest.post(url, options)
+### requestify.post(url, options)
 
 Exceutes a POST method request
 ``` javascript
-httpRequest.post('http://example.com', {
+requestify.post('http://example.com', {
 	body: {
 		hello: 'world'
 	}
@@ -131,12 +128,12 @@ httpRequest.post('http://example.com', {
 });
 ```
 
-### httpRequest.put(url, options)
+### requestify.put(url, options)
 
 Exceutes a PUT method request
 
 ``` javascript
-httpRequest.put('http://example.com', {
+requestify.put('http://example.com', {
 		body: 'some file content',
 		dataType: null	
 	})
@@ -146,23 +143,23 @@ httpRequest.put('http://example.com', {
 });
 ```
 
-### httpRequest.del(url, options)
+### requestify.del(url, options)
 
 Exceutes a DELETE method request
 
 ``` javascript
-httpRequest.del('http://example.com').then(function(response) {
+requestify.del('http://example.com').then(function(response) {
 	// Get the response body
 	response.getBody();
 });
 ```
 
-### httpRequest.head(url, options)
+### requestify.head(url, options)
 
 Exceutes a HEAD method request
 
 ``` javascript
-httpRequest.head('http://example.com').then(function(response) {
+requestify.head('http://example.com').then(function(response) {
 	// Get the response code
 	response.getCode();
 });
