@@ -222,10 +222,10 @@ var mocha = require('mocha'),
                     expect(request.getAuthorization()).to.equal(null);
                 });
 
-                it('Should return Authorization header for username: anakin and password: skywalker', function() {
+                it('Should return auth string for username: anakin and password: skywalker', function() {
                     var request = new Request('http://www.wix.com', 'POST', params, headers, 'json', { username: 'anakin', password: 'skywalker' });
 
-                    expect(request.getAuthorization()).to.equal('Basic YW5ha2luOnNreXdhbGtlcg==');
+                    expect(request.getAuthorization()).to.equal('anakin:skywalker');
                 });
             });
         });
