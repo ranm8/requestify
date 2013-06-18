@@ -62,10 +62,13 @@ Can be either an object (key, val) or a string, will be formatted depending on t
 Adds Basic authintication header with given username and password
 
 #### `dataType {string}` 
-
 Determines the request data type (json|form-url-encoded), this option will encode the request body according to the given dataType and will add the appropriate header (defaults to json). 
 
 If null will be given, the body will be served as string.
+
+#### `timeout {number} `
+Set a timeout (in milliseconds) for the request.
+
 
 ### httpRequest.request(url, options)
 
