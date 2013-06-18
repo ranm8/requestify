@@ -47,7 +47,7 @@ httpRequest.post('http://example.com', {
 ### options
 
 #### `method {string}` 
-HTTP method to use, can be one of the following methods: POST | GET | DELETE | HEAD | PUT.
+HTTP method to use, can be any valid HTTP method (e.g. POST, GET, DELETE, HEAD, PUT, etc.).
 
 #### `body {object|string}`
 Can be either an object (key, val) or a string, will be formatted depending on the dataType property and served via response body.
