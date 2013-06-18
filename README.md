@@ -10,7 +10,7 @@ http-request is a nodeJS http client that simplifies HTTP request making.
 
 ## How to use?
 
-requestify is extremely easy to use and always return a promise (using the great Q module)...
+requestify is extremely easy to use and always return a promise (using the amazing Q module)...
 
 Simply require the module and start requesting:
 
