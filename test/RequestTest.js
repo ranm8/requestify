@@ -24,7 +24,15 @@ var mocha = require('mocha'),
                     headers = {
                         'Accept': 'application/json'
                     },
-                    request = new Request(url, 'GET', params, headers, 'json');
+                    request = new Request(url, {
+                        method: 'GET',
+                        body: params,
+                        headers: headers,
+                        dataType: 'json',
+                        cookies: {},
+                        auth: {},
+                        timeout: 60
+                    });
 
                 expect(request.url).to.equal(url);
                 expect(request.headers).to.equal(headers);
@@ -37,7 +45,9 @@ var mocha = require('mocha'),
             var request;
 
             beforeEach(function() {
-                request = new Request('http://www.google.com/hello/world', 'GET');
+                request = new Request('http://www.google.com/hello/world', {
+                    method: 'GET'
+                });
             });
 
             afterEach(function() {
@@ -46,7 +56,9 @@ var mocha = require('mocha'),
 
             describe('#getUrlParts()', function() {
                 it ('Should parse and cache the parsed url parts object', function() {
-                    var request = new Request('http://www.google.com/hello/world', 'GET');
+                    var request = new Request('http://www.google.com/hello/world', {
+                        method: 'GET'
+                    });
 
                     request.getUrlParts();
                     expect(request.urlParts).to.be.a('object');
@@ -54,7 +66,7 @@ var mocha = require('mocha'),
                 });
 
                 it('Should throw an error if URL is invalid', function() {
-                    var request = new Request('foo.bar', 'GET');
+                    var request = new Request('foo.bar', { method: 'GET' });
                     expect(request.getUrlParts).to.throw(Error);
                 });
             });
@@ -67,7 +79,7 @@ var mocha = require('mocha'),
                 });
 
                 it('Should be port 8080', function() {
-                    var request = new Request('http://www.google.com:8080/hello/world', 'GET');
+                    var request = new Request('http://www.google.com:8080/hello/world', { method: 'GET' });
 
                     expect(request.getPort()).to.equal('8080');
                 });
@@ -86,7 +98,7 @@ var mocha = require('mocha'),
 
                 it('Should return the URI with basic query string added', function() {
                     var path = '/wix/new?hi=foo&bar=hey',
-                        request = new Request('http://www.google.com' + path, 'GET');
+                        request = new Request('http://www.google.com' + path, { method: 'GET' });
 
                     expect(request.getUri()).to.equal(path);
                 });
@@ -96,7 +108,10 @@ var mocha = require('mocha'),
                             foo: 'bar',
                             bar: 'foo'
                         },
-                        request = new Request('http://www.wix.com', 'GET', params);
+                        request = new Request('http://www.wix.com', {
+                            method: 'GET',
+                            body: params
+                        });
 
                     expect(request.getUri()).to.equal('/?' + queryString.encode(params));
                 });
@@ -107,7 +122,10 @@ var mocha = require('mocha'),
                             bar: 'foo'
                         },
                         path = '/?anakin=skywalker',
-                        request = new Request('http://www.wix.com' + path, 'GET', params);
+                        request = new Request('http://www.wix.com' + path, {
+                            method: 'GET',
+                            body: params
+                        });
 
                     expect(request.getUri()).to.equal(path + '&' + queryString.encode(params));
                 });
@@ -119,7 +137,10 @@ var mocha = require('mocha'),
                 request;
 
             beforeEach(function() {
-               request = new Request('http://www.wix.com', 'POST', params);
+               request = new Request('http://www.wix.com', {
+                   method: 'POST',
+                   body: params
+               });
             });
 
             afterEach(function() {
@@ -144,7 +165,12 @@ var mocha = require('mocha'),
                 });
 
                 it('Should return encoded body according to given data type url encoded', function() {
-                    var request = new Request('http://www.wix.com', 'POST', params, {}, 'form-url-encoded');
+                    var request = new Request('http://www.wix.com', {
+                        method: 'POST',
+                        body: params,
+                        headers: {},
+                        dataType: 'form-url-encoded'
+                    });
 
                     expect(request.getBody()).to.equal(queryString.encode(params));
                 });
@@ -161,7 +187,11 @@ var mocha = require('mocha'),
                 request;
 
             beforeEach(function() {
-                request = new Request('http://www.wix.com', 'POST', params, headers);
+                request = new Request('http://www.wix.com', {
+                    method: 'POST',
+                    body: params,
+                    headers: headers
+                });
             });
 
             afterEach(function() {
@@ -184,7 +214,10 @@ var mocha = require('mocha'),
                 });
 
                 it('Return 0 if request is based on GET method', function() {
-                    var request = new Request('http://www.wix.com', 'GET', params);
+                    var request = new Request('http://www.wix.com', {
+                        method: 'GET',
+                        body: params
+                    });
 
                     expect(request.getContentLength()).to.equal(0);
                 });
@@ -223,7 +256,14 @@ var mocha = require('mocha'),
                 });
 
                 it('Should return auth string for username: anakin and password: skywalker', function() {
-                    var request = new Request('http://www.wix.com', 'POST', params, headers, 'json', { username: 'anakin', password: 'skywalker' });
+                    var request = new Request('http://www.wix.com', {
+                        method: 'POST',
+                        body: params,
+                        headers: headers,
+                        auth: {
+                            username: 'anakin', password: 'skywalker'
+                        }
+                    });
 
                     expect(request.getAuthorization()).to.equal('anakin:skywalker');
                 });
