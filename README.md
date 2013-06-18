@@ -1,6 +1,8 @@
 Requestify - Simplifies HTTP request making using node [![Build Status](https://secure.travis-ci.org/ranm8/requestify.png?branch=master)](http://travis-ci.org/ranm8/requestify)
 ==============================================
 
+Requestify is a super easy to use and extendable HTTP client for nodeJS.
+
 ## Installation
 
 	npm install requestify  
