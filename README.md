@@ -21,10 +21,12 @@ var httpRequest = require('http_request');
 ```
 GET Request:
 
-	httpRequest.get('http://example.com').then(function(response) {
-		// Get the response body
-		response.getBody();
-	});
+``` javascript
+httpRequest.get('http://example.com').then(function(response) {
+	// Get the response body
+	response.getBody();
+});
+```
 
 POST Request in JSON:
 
