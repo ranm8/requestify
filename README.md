@@ -110,14 +110,12 @@ requestify.get('http://example.com').then(function(response) {
 	response.getBody();
 });
 ```
-### requestify.post(url, options)
+### requestify.post(url, data, options)
 
 Exceutes a POST method request
 ``` javascript
 requestify.post('http://example.com', {
-	body: {
 		hello: 'world'
-	}
 })
 .then(function(response) {
 	// Get the response body
@@ -125,16 +123,15 @@ requestify.post('http://example.com', {
 });
 ```
 
-### requestify.put(url, options)
+### requestify.put(url, data, options)
 
 Exceutes a PUT method request
 
 ``` javascript
 requestify.put('http://example.com', {
-		body: 'some file content',
-		dataType: null	
-	})
-	.then(function(response) {
+    some: 'data'
+})
+.then(function(response) {
 	// Get the response body
 	response.getBody();
 });
