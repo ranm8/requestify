@@ -54,7 +54,7 @@ Can be either an object (key, val) or a string, will be formatted depending on t
 (key, value) object of cookies to encode and serve via the request header.
 
 #### `auth {{ username: string, password: string }} `
-Adds Basic authintication header with given username and password
+Adds Basic authentication header with given username and password
 
 #### `dataType {string}` 
 Determines the request data type (json|form-url-encoded), this option will encode the request body according to the given dataType and will add the appropriate header (defaults to json). 
@@ -103,7 +103,7 @@ requestify.request('https://example.com/api/foo', {
 ```
 ### requestify.get(url, options)
 
-Exceutes a GET method request
+Executes a GET method request
 ``` javascript
 requestify.get('http://example.com').then(function(response) {
 	// Get the response body
@@ -112,7 +112,7 @@ requestify.get('http://example.com').then(function(response) {
 ```
 ### requestify.post(url, data, options)
 
-Exceutes a POST method request
+Executes a POST method request
 ``` javascript
 requestify.post('http://example.com', {
 		hello: 'world'
@@ -125,13 +125,10 @@ requestify.post('http://example.com', {
 
 ### requestify.put(url, data, options)
 
-Exceutes a PUT method request
+Executes a PUT method request
 
 ``` javascript
-requestify.put('http://example.com', {
-    some: 'data'
-})
-.then(function(response) {
+requestify.put('http://example.com', 'some-file-content').then(function(response) {
 	// Get the response body
 	response.getBody();
 });
@@ -139,7 +136,7 @@ requestify.put('http://example.com', {
 
 ### requestify.delete(url, options)
 
-Exceutes a DELETE method request
+Executes a DELETE method request
 
 ``` javascript
 requestify.delete('http://example.com').then(function(response) {
@@ -150,7 +147,7 @@ requestify.delete('http://example.com').then(function(response) {
 
 ### requestify.head(url, options)
 
-Exceutes a HEAD method request
+Executes a HEAD method request
 
 ``` javascript
 requestify.head('http://example.com').then(function(response) {
