@@ -57,9 +57,7 @@
 <p>POST Request in JSON:</p>
 
 <div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
-            <span class="nx">hello</span><span class="o">:</span> <span class="s1">'world'</span>
-        <span class="p">}</span>
+        <span class="nx">hello</span><span class="o">:</span> <span class="s1">'world'</span>
     <span class="p">})</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// Get the response body</span>
@@ -198,11 +196,11 @@
 </pre></div>
 
 <h2>
-<a name="requestifydelurl-options" class="anchor" href="#requestifydelurl-options"><span class="octicon octicon-link"></span></a>requestify.del(url, options)</h2>
+<a name="requestifydeleteurl-options" class="anchor" href="#requestifydeleteurl-options"><span class="octicon octicon-link"></span></a>requestify.delete(url, options)</h2>
 
 <p>Exceutes a DELETE method request</p>
 
-<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">del</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
 <span class="p">});</span>
