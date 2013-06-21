@@ -29,9 +29,7 @@ POST Request in JSON:
 
 ``` javascript
 requestify.post('http://example.com', {
-		body: {
-			hello: 'world'
-		}
+		hello: 'world'
 	})
 	.then(function(response) {
 		// Get the response body
