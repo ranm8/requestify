@@ -117,6 +117,8 @@ var mocha = require('mocha'),
             describe('#post()', function() {
                 it('should call #request() with then given body and method POST', function() {
                     requestify.post('http://www.wix.com', {
+                        foo: 'bar'
+                    }, {
                         cookies: {
                             key: 'val'
                         }
@@ -126,6 +128,9 @@ var mocha = require('mocha'),
                         method: 'POST',
                         cookies: {
                             key: 'val'
+                        },
+                        body: {
+                            foo: 'bar'
                         }
                     })).to.equal(true);
                 });
@@ -134,6 +139,8 @@ var mocha = require('mocha'),
             describe('#put()', function() {
                 it('should call #request() with then given body and method PUT', function() {
                     requestify.put('http://www.wix.com', {
+                        foo: 'bar'
+                    }, {
                         cookies: {
                             key: 'val'
                         }
@@ -143,6 +150,9 @@ var mocha = require('mocha'),
                         method: 'PUT',
                         cookies: {
                             key: 'val'
+                        },
+                        body: {
+                            foo: 'bar'
                         }
                     })).to.equal(true);
                 });
@@ -150,7 +160,7 @@ var mocha = require('mocha'),
 
             describe('#del()', function() {
                 it('should call #request() with then given body and method DELETE', function() {
-                    requestify.del('http://www.wix.com', {
+                    requestify.delete('http://www.wix.com', {
                         cookies: {
                             key: 'val'
                         }
