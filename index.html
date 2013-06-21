@@ -99,7 +99,7 @@
 <a name="auth--username-string-password-string-" class="anchor" href="#auth--username-string-password-string-"><span class="octicon octicon-link"></span></a><code>auth {{ username: string, password: string }}</code>
 </h3>
 
-<p>Adds Basic authintication header with given username and password</p>
+<p>Adds Basic authentication header with given username and password</p>
 
 <h3>
 <a name="datatype-string" class="anchor" href="#datatype-string"><span class="octicon octicon-link"></span></a><code>dataType {string}</code>
@@ -156,7 +156,7 @@
 <h2>
 <a name="requestifygeturl-options" class="anchor" href="#requestifygeturl-options"><span class="octicon octicon-link"></span></a>requestify.get(url, options)</h2>
 
-<p>Exceutes a GET method request</p>
+<p>Executes a GET method request</p>
 
 <div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
@@ -165,14 +165,12 @@
 </pre></div>
 
 <h2>
-<a name="requestifyposturl-options" class="anchor" href="#requestifyposturl-options"><span class="octicon octicon-link"></span></a>requestify.post(url, options)</h2>
+<a name="requestifyposturl-data-options" class="anchor" href="#requestifyposturl-data-options"><span class="octicon octicon-link"></span></a>requestify.post(url, data, options)</h2>
 
-<p>Exceutes a POST method request</p>
+<p>Executes a POST method request</p>
 
 <div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">hello</span><span class="o">:</span> <span class="s1">'world'</span>
-    <span class="p">}</span>
+    <span class="nx">hello</span><span class="o">:</span> <span class="s1">'world'</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
@@ -181,15 +179,11 @@
 </pre></div>
 
 <h2>
-<a name="requestifyputurl-options" class="anchor" href="#requestifyputurl-options"><span class="octicon octicon-link"></span></a>requestify.put(url, options)</h2>
+<a name="requestifyputurl-data-options" class="anchor" href="#requestifyputurl-data-options"><span class="octicon octicon-link"></span></a>requestify.put(url, data, options)</h2>
 
-<p>Exceutes a PUT method request</p>
+<p>Executes a PUT method request</p>
 
-<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="p">{</span>
-        <span class="nx">body</span><span class="o">:</span> <span class="s1">'some file content'</span><span class="p">,</span>
-        <span class="nx">dataType</span><span class="o">:</span> <span class="kc">null</span>  
-    <span class="p">})</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">,</span> <span class="s1">'some-file-content'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
 <span class="p">});</span>
@@ -198,7 +192,7 @@
 <h2>
 <a name="requestifydeleteurl-options" class="anchor" href="#requestifydeleteurl-options"><span class="octicon octicon-link"></span></a>requestify.delete(url, options)</h2>
 
-<p>Exceutes a DELETE method request</p>
+<p>Executes a DELETE method request</p>
 
 <div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
@@ -209,7 +203,7 @@
 <h2>
 <a name="requestifyheadurl-options" class="anchor" href="#requestifyheadurl-options"><span class="octicon octicon-link"></span></a>requestify.head(url, options)</h2>
 
-<p>Exceutes a HEAD method request</p>
+<p>Executes a HEAD method request</p>
 
 <div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">head</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response code</span>
