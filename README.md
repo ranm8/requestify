@@ -140,12 +140,12 @@ requestify.put('http://example.com', {
 });
 ```
 
-### requestify.del(url, options)
+### requestify.delete(url, options)
 
 Exceutes a DELETE method request
 
 ``` javascript
-requestify.del('http://example.com').then(function(response) {
+requestify.delete('http://example.com').then(function(response) {
 	// Get the response body
 	response.getBody();
 });
