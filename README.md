@@ -64,6 +64,10 @@ If null will be given, the body will be served as string.
 #### `timeout {number} `
 Set a timeout (in milliseconds) for the request.
 
+### requestify.setEncoding(encoding)
+
+Sets encoding to parse responses with
+
 ### requestify.request(url, options)
 
 Executes a custom request according to options object

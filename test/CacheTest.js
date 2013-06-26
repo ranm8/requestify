@@ -38,7 +38,7 @@ var mocha = require('mocha'),
             it('should reject because no redis instance was set', function() {
                 cache.get('http://www.google.com');
 
-                expect(deferMock.reject.calledWith('Redis is not available')).to.equal(true);
+                expect(deferMock.reject.calledWith('Redis instance must be set on module configuration')).to.equal(true);
             });
 
             it('should call get with the cached full url as key', function() {
@@ -56,7 +56,7 @@ var mocha = require('mocha'),
                 cache.setRedis(null);
                 cache.set('http://www.google.com', {code: 200});
 
-                expect(deferMock.reject.calledWith('Redis is not available')).to.equal(true);
+                expect(deferMock.reject.calledWith('Redis instance must be set on module configuration')).to.equal(true);
             });
 
             it('should call get with the cached full url as key', function() {
