@@ -42,12 +42,22 @@ requestify.post('http://example.com', {
 ### requestify.setEncoding(encoding)
 
 Sets Requestify's encoding. Requestify will use this encoding to decode the responses.
+Defaults to utf8.
+
+```javascript
+requestify.setEncoding('utf8'); // utf8 is set by default anyway.
+```
 
 ### requestify.redis(redisInstance)
 
 Sets Redis client instance. Requestify will use that instance for caching responses.
 Please note, Requestify will NOT cache anything by default and caching is allowed only for GET requests (see @cache options for further info).
 
+```javascript
+var redis = require('redis');
+
+requestify.redis(redis.createClient());
+```
 
 ## API Reference
 
