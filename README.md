@@ -88,9 +88,6 @@ Requistify has built-in Redis based caching mechanism. For using this feature, s
 
 Caching will always be set to `false` by default.
 
-### requestify.setEncoding(encoding)
-
-Sets encoding to parse responses with
 
 ### requestify.request(url, options)
 
