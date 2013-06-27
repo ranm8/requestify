@@ -1,7 +1,7 @@
 Requestify - Simplifies node HTTP request making. [![Build Status](https://secure.travis-ci.org/ranm8/requestify.png?branch=master)](http://travis-ci.org/ranm8/requestify)
 ==============================================
 
-Requestify is a super easy to use and extendable HTTP client for nodeJS.
+Requestify is a super easy to use and extendable HTTP client for nodeJS + it supports cache (-:.
 
 ## Installation
 
@@ -37,6 +37,18 @@ requestify.post('http://example.com', {
 	});
 ```
 
+## Configuration methods
+
+### requestify.setEncoding(encoding)
+
+Sets Requestify's encoding. Requestify will use this encoding to decode the responses.
+
+### requestify.redis(redisInstance)
+
+Sets Redis client instance. Requestify will use that instance for caching responses.
+Please note, Requestify will NOT cache anything by default and caching is allowed only for GET requests (see @cache options for further info).
+
+
 ## API Reference
 
 ### options
@@ -63,6 +75,18 @@ If null will be given, the body will be served as string.
 
 #### `timeout {number} `
 Set a timeout (in milliseconds) for the request.
+
+### `cache {{ cache: boolean, expires: number }}`
+Requistify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:
+
+```javascript
+{
+	cache: true, // Will set caching to true for this request.
+	expires: 3600 // Time for cache to expire in seconds
+}
+```
+
+Caching will always be set to `false` by default.
 
 ### requestify.setEncoding(encoding)
 
