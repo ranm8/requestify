@@ -69,6 +69,29 @@
 <a name="api-reference" class="anchor" href="#api-reference"><span class="octicon octicon-link"></span></a>API Reference</h1>
 
 <h2>
+<a name="configuration-methods" class="anchor" href="#configuration-methods"><span class="octicon octicon-link"></span></a>Configuration methods</h2>
+
+<h3>
+<a name="requestifysetencodingencoding" class="anchor" href="#requestifysetencodingencoding"><span class="octicon octicon-link"></span></a>requestify.setEncoding(encoding)</h3>
+
+<p>Sets Requestify's encoding. Requestify will use this encoding to decode the responses.
+Defaults to utf8.</p>
+
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="s1">'utf8'</span><span class="p">);</span> <span class="c1">// utf8 is set by default anyway.</span>
+</pre></div>
+
+<h3>
+<a name="requestifyredisredisinstance" class="anchor" href="#requestifyredisredisinstance"><span class="octicon octicon-link"></span></a>requestify.redis(redisInstance)</h3>
+
+<p>Sets Redis client instance. Requestify will use that instance for caching responses.
+Please note, Requestify will NOT cache anything by default and caching is allowed only for GET requests (see @cache options for further info).</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">redis</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'redis'</span><span class="p">);</span>
+
+<span class="nx">requestify</span><span class="p">.</span><span class="nx">redis</span><span class="p">(</span><span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">());</span>
+</pre></div>
+
+<h2>
 <a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>options</h2>
 
 <h3>
@@ -114,6 +137,20 @@
 </h3>
 
 <p>Set a timeout (in milliseconds) for the request.</p>
+
+<h3>
+<a name="cache--cache-boolean-expires-number-" class="anchor" href="#cache--cache-boolean-expires-number-"><span class="octicon octicon-link"></span></a><code>cache {{ cache: boolean, expires: number }}</code>
+</h3>
+
+<p>Requistify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:</p>
+
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nx">cache</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Will set caching to true for this request.</span>
+    <span class="nx">expires</span><span class="o">:</span> <span class="mi">3600</span> <span class="c1">// Time for cache to expire in seconds</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Caching will always be set to <code>false</code> by default.</p>
 
 <h2>
 <a name="requestifyrequesturl-options" class="anchor" href="#requestifyrequesturl-options"><span class="octicon octicon-link"></span></a>requestify.request(url, options)</h2>
