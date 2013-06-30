@@ -5,7 +5,7 @@
 	"scripts": {
 		"test": "mocha -R spec"
 	},
-	"license": "MIT", 
+    "license": "MIT",
     "tags": [
         "http",
         "request",
