@@ -1,10 +1,11 @@
 {
     "name": "requestify",
     "description": "Simplifies node HTTP request making.",
-    "version": "0.1.5",
+    "version": "0.1.6",
 	"scripts": {
 		"test": "mocha -R spec"
 	},
+	"license": "MIT", 
     "tags": [
         "http",
         "request",
