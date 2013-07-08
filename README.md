@@ -67,7 +67,7 @@ requestify.redis(redis.createClient());
 HTTP method to use, can be any valid HTTP method (e.g. POST, GET, DELETE, HEAD, PUT, etc.).
 
 #### `body {object|string}`
-Can be either an object (key, val) or a string, will be formatted depending on the dataType property and served via response body.
+Can be either an object (key, val) or a string, will be formatted depending on the dataType property and served via request body.
 
 #### `headers {object}` 
 (key, value) object of headers (some headers like content-length are set by default)
