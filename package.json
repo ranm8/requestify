@@ -1,7 +1,7 @@
 {
     "name": "requestify",
     "description": "Simplifies node HTTP request making.",
-    "version": "0.1.8",
+    "version": "0.1.9",
 	"scripts": {
 		"test": "mocha -R spec"
 	},
