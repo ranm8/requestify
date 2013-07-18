@@ -49,8 +49,11 @@
 <p>GET Request:</p>
 
 <div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Get the response body</span>
+    <span class="c1">// Get the response body (JSON parsed - JSON response or jQuery object in case of XML response)</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
+
+    <span class="c1">// Get the response raw body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -187,6 +190,9 @@ Please note, Requestify will NOT cache anything by default and caching is allowe
 
     <span class="c1">// get the code</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getCode</span><span class="p">();</span>
+
+    <span class="c1">// Get the response raw body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -198,6 +204,9 @@ Please note, Requestify will NOT cache anything by default and caching is allowe
 <div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Get the response body</span>
     <span class="nx">response</span><span class="p">.</span><span class="nx">getBody</span><span class="p">();</span>
+
+    <span class="c1">// Get the response raw body</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
 <span class="p">});</span>
 </pre></div>
 
