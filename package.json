@@ -15,7 +15,10 @@
         "util",
         "http client",
         "client",
-        "request client"
+        "request client",
+        "http cache",
+        "cache",
+        "HTTP caching"
     ],
     "author": "Ran Mizrahi <ranm@codeoasis.com>",
     "dependencies": {
