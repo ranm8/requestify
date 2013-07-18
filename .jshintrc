@@ -1,0 +1,30 @@
+{
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "sub": true,
+    "undef": true,
+    "boss": true,
+    "eqnull": true,
+    "node": true,
+    "smarttabs": true,
+    "globals": {
+        "angular": true,
+        "inject": false,
+        "_": true,
+        "$": true,
+        "before": false,
+        "beforeEach": false,
+        "afterEach": false,
+        "describe": false,
+        "it": false,
+        "expect": true,
+        "window": true,
+        "jasmine": true,
+        "spyOn": true,
+        "appRoot": true
+    }
+}
