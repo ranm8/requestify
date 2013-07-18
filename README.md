@@ -32,8 +32,11 @@ requestify.post('http://example.com', {
 		hello: 'world'
 	})
 	.then(function(response) {
-		// Get the response body
+		// Get the response body (JSON parsed or jQuery object for XMLs)
 		response.getBody();
+		
+		// Get the raw response body
+		response.body;
 	});
 ```
 
@@ -134,6 +137,9 @@ requestify.request('https://example.com/api/foo', {
  
  	// get the code
  	response.getCode();
+	
+	// get the raw response body
+	response.body;
 });
 ```
 ### requestify.get(url, options)
