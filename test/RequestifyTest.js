@@ -5,8 +5,7 @@ var mocha = require('mocha'),
     expect = require('chai').expect,
     rewire = require('rewire'),
     requestify = rewire('../lib/Requestify.js'),
-    Q = require('q'),
-    queryString = require('querystring');
+    Q = require('q');
 
 describe('Requestify', function() {
 
