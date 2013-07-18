@@ -8,20 +8,21 @@ var mocha = require('mocha'),
     'use strict';
 
     describe('Cache', function() {
-        var redisMock,
+        var redisTransporterMock,
             deferMock;
 
         beforeEach(function() {
-            redisMock = {
+            redisTransporterMock = {
                 set: sinon.stub(),
-                get: sinon.stub()
+                get: sinon.stub(),
+                purge: sinon.stub()
             };
             deferMock = {
                 resolve: sinon.stub(),
                 reject: sinon.stub()
             };
 
-            cache.__set__('redis', redisMock);
+            cache.__set__('redis', redisTransporterMock);
             cache.__set__('Q', {
                 defer: function() {
                     return deferMock;
@@ -34,43 +35,52 @@ var mocha = require('mocha'),
             cache.__set__('Q', {});
         });
 
-        describe('#get()', function() {
-            it('should reject because no redis instance was set', function() {
-                cache.get('http://www.google.com');
-
-                expect(deferMock.reject.calledWith('Redis instance must be set on module configuration')).to.equal(true);
+        describe('#isTransportAvailable()', function() {
+            it('should return false, transport still not set', function() {
+                expect(cache.isTransportAvailable()).to.equal(false);
             });
 
-            it('should call get with the cached full url as key', function() {
-                cache.setRedis(redisMock);
+            it('should return true, transport was set', function() {
+                cache.setCacheTransporter(redisTransporterMock);
+
+                expect(cache.isTransportAvailable()).to.equal(true);
+            });
+        });
+
+        describe('#purge()', function() {
+            it('should call purge with the cached full url as key', function() {
+                cache.setCacheTransporter(redisTransporterMock);
 
                 var url = 'http://www.google.com';
                 cache.get(url);
 
-                expect(redisMock.get.calledWith(url)).to.equal(true);
+                expect(redisTransporterMock.get.calledWith(url)).to.equal(true);
+            });
+
+        });
+
+        describe('#get()', function() {
+            it('should call get with the cached full url as key', function() {
+                cache.setCacheTransporter(redisTransporterMock);
+
+                var url = 'http://www.google.com';
+                cache.get(url);
+
+                expect(redisTransporterMock.get.calledWith(url)).to.equal(true);
             });
         });
 
         describe('#set()', function() {
-            it('should reject because no redis instance was set', function() {
-                cache.setRedis(null);
-                cache.set('http://www.google.com', {code: 200});
-
-                expect(deferMock.reject.calledWith('Redis instance must be set on module configuration')).to.equal(true);
-            });
-
             it('should call get with the cached full url as key', function() {
-                cache.setRedis(redisMock);
+                cache.setCacheTransporter(redisTransporterMock);
 
                 var url = 'http://www.google.com',
                     data = { code: 200 };
 
                 cache.set(url, data);
 
-                expect(redisMock.set.calledWith(url, JSON.stringify(data))).to.equal(true);
+                expect(redisTransporterMock.set.calledWith(url, JSON.stringify(data))).to.equal(true);
             });
-
         });
-
     });
 }());
