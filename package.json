@@ -1,6 +1,6 @@
 {
     "name": "requestify",
-    "description": "Simplifies node HTTP request making.",
+    "description": "Simplifies node HTTP request making (HTTP client) with caching support.",
     "version": "0.1.10",
 	"scripts": {
 		"test": "mocha -R spec"
@@ -12,7 +12,10 @@
         "http-request",
         "simple",
         "web services",
-        "util"
+        "util",
+		"http client",
+		"client",
+		"request client"
     ],
     "author": "Ran Mizrahi <ranm@codeoasis.com>",
     "dependencies": {
