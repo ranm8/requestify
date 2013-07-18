@@ -8,9 +8,22 @@ var mocha = require('mocha'),
     Q = require('q');
 
 describe('Requestify', function() {
+    var cacheStub;
 
     afterEach(function() {
         requestify.responseEncoding('utf8');
+    });
+
+    beforeEach(function() {
+        cacheStub = {
+            setCacheTransporter: sinon.stub(),
+            get: sinon.stub(),
+            set: sinon.stub(),
+            purge: sinon.stub(),
+            isTransportAvailable: sinon.stub()
+        };
+
+        requestify.__set__('cache', cacheStub);
     });
 
     describe('#responseEncoding()', function() {
@@ -28,7 +41,8 @@ describe('Requestify', function() {
 
     describe('#request()', function() {
         var httpStub,
-            httpsStub;
+            httpsStub,
+            cacheStub;
 
         beforeEach(function() {
             httpStub = sinon.stub().returns({
@@ -48,7 +62,6 @@ describe('Requestify', function() {
             requestify.__set__('https', {
                 request: httpsStub
             });
-
         });
 
         afterEach(function() {
@@ -187,6 +200,20 @@ describe('Requestify', function() {
                         key: 'val'
                     }
                 })).to.equal(true);
+            });
+        });
+
+        describe('#cacheTransporter()', function() {
+            it('should do nothing since called it without any transporter', function() {
+                requestify.cacheTransporter();
+
+                expect(cacheStub.setCacheTransporter.called).to.equal(false);
+            });
+
+            it('should call cache.setCacheTransporter with the transporter', function() {
+                requestify.cacheTransporter({});
+
+                expect(cacheStub.setCacheTransporter.called).to.equal(true);
             });
         });
     });
