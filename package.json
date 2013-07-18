@@ -13,9 +13,9 @@
         "simple",
         "web services",
         "util",
-		"http client",
-		"client",
-		"request client"
+        "http client",
+        "client",
+        "request client"
     ],
     "author": "Ran Mizrahi <ranm@codeoasis.com>",
     "dependencies": {
