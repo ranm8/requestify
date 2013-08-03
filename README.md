@@ -64,7 +64,7 @@ requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance)); // Se
 
 You can implement your own cache transporters (@see docs below)
 
-### requestify.redis(redisInstance)
+### requestify.redis(redisInstance) - @depercated
 
 Sets Redis client instance. Requestify will use that instance for caching responses.
 Please note, Requestify will NOT cache anything by default and caching is allowed only for GET requests (see @cache options for further info).
