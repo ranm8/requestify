@@ -70,7 +70,7 @@ describe('Cache', function() {
     });
 
     describe('#set()', function() {
-        it('should call get with the cached full url as key', function() {
+        it('should call set with the cached full url as key', function() {
             cache.setCacheTransporter(redisTransporterMock);
 
             var url = 'http://www.google.com',
@@ -78,7 +78,7 @@ describe('Cache', function() {
 
             cache.set(url, data);
 
-            expect(redisTransporterMock.set.calledWith(url, JSON.stringify(data))).to.equal(true);
+            expect(redisTransporterMock.set.calledWith(url, data)).to.equal(true);
         });
     });
 });
