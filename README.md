@@ -51,6 +51,19 @@ Defaults to utf8.
 requestify.setEncoding('utf8'); // utf8 is set by default anyway.
 ```
 
+### requestify.cacheTransporter(cacheTransporter)
+
+Sets the cache transporter for Requestify's use. Requestify will use this transporter for caching desired flagged HTTP responses.
+For using one of Requestify's core transporter use the core transporters object (`coreCacheTransporters`).
+
+For example:
+
+```javascript
+requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance)); // Set the core Redis cache transporter
+```
+
+You can implement your own cache transporters (@see docs below)
+
 ### requestify.redis(redisInstance)
 
 Sets Redis client instance. Requestify will use that instance for caching responses.
@@ -196,6 +209,13 @@ requestify.head('http://example.com').then(function(response) {
 	response.getCode();
 });
 ```
+
+## Custom Cache Transporters
+
+Using Requestify, you can implement your own cache transporters for using currently unsupported stores.
+To implement your own store, all you have to do is implement Requestify's cache transporter interface. Below is the interface specs:
+
+
 
 ## Running Tests
 
