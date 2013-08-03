@@ -84,7 +84,20 @@ Defaults to utf8.</p>
 </pre></div>
 
 <h3>
-<a name="requestifyredisredisinstance" class="anchor" href="#requestifyredisredisinstance"><span class="octicon octicon-link"></span></a>requestify.redis(redisInstance)</h3>
+<a name="requestifycachetransportercachetransporter" class="anchor" href="#requestifycachetransportercachetransporter"><span class="octicon octicon-link"></span></a>requestify.cacheTransporter(cacheTransporter)</h3>
+
+<p>Sets the cache transporter for Requestify's use. Requestify will use this transporter for caching desired flagged HTTP responses.
+For using one of Requestify's core transporter use the core transporters object (<code>coreCacheTransporters</code>).</p>
+
+<p>For example:</p>
+
+<div class="highlight"><pre><span class="nx">requestify</span><span class="p">.</span><span class="nx">cacheTransporter</span><span class="p">(</span><span class="nx">coreCacheTransporters</span><span class="p">.</span><span class="nx">redis</span><span class="p">(</span><span class="nx">myRedisInstance</span><span class="p">));</span> <span class="c1">// Set the core Redis cache transporter</span>
+</pre></div>
+
+<p>You can implement your own cache transporters (<a href="https://github.com/see" class="user-mention">@see</a> "Custom Transporters" below)</p>
+
+<h3>
+<a name="requestifyredisredisinstance---depercated" class="anchor" href="#requestifyredisredisinstance---depercated"><span class="octicon octicon-link"></span></a>requestify.redis(redisInstance) - @depercated</h3>
 
 <p>Sets Redis client instance. Requestify will use that instance for caching responses.
 Please note, Requestify will NOT cache anything by default and caching is allowed only for GET requests (see @cache options for further info).</p>
@@ -256,6 +269,28 @@ Please note, Requestify will NOT cache anything by default and caching is allowe
     <span class="nx">response</span><span class="p">.</span><span class="nx">getCode</span><span class="p">();</span>
 <span class="p">});</span>
 </pre></div>
+
+<h1>
+<a name="custom-cache-transporters" class="anchor" href="#custom-cache-transporters"><span class="octicon octicon-link"></span></a>Custom Cache Transporters</h1>
+
+<p>Using Requestify, you can implement your own cache transporters for using currently unsupported stores.
+To implement your own store, all you have to do is implement Requestify's cache transporter interface. For example, you can see the core Redis transporter (./cache-transporters).
+Below is the interface specs to implement:</p>
+
+<h2>
+<a name="geturl-string-callback-function" class="anchor" href="#geturl-string-callback-function"><span class="octicon octicon-link"></span></a>get(url: string, callback: function)</h2>
+
+<p>Returns the response according to the given URL from your cache store and call the given callback with the data.</p>
+
+<h2>
+<a name="seturl-string-response--code-number-headers-object-body-string-created-timestamp--callback-function" class="anchor" href="#seturl-string-response--code-number-headers-object-body-string-created-timestamp--callback-function"><span class="octicon octicon-link"></span></a>set(url: string, response: {{ code: number, headers: object, body: string, created: timestamp }}, callback: function)</h2>
+
+<p>Store the given response by the given URL (key), please make sure to store the response object exactly in the same way you've got it.</p>
+
+<h2>
+<a name="purgeurl-string-callback-function" class="anchor" href="#purgeurl-string-callback-function"><span class="octicon octicon-link"></span></a>purge(url: string, callback: function)</h2>
+
+<p>Purge the response according to the given URL (key) from your cache store.</p>
 
 <h1>
 <a name="running-tests" class="anchor" href="#running-tests"><span class="octicon octicon-link"></span></a>Running Tests</h1>
