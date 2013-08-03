@@ -213,9 +213,20 @@ requestify.head('http://example.com').then(function(response) {
 ## Custom Cache Transporters
 
 Using Requestify, you can implement your own cache transporters for using currently unsupported stores.
-To implement your own store, all you have to do is implement Requestify's cache transporter interface. Below is the interface specs:
+To implement your own store, all you have to do is implement Requestify's cache transporter interface. For example, you can see the core Redis transporter (./cache-transporters).
+Below is the interface specs to implement:
 
+### get(url: string, callback: function)
 
+Returns the response according to the given URL from your cache store and call the given callback with the data.
+
+### set(url: string, response: {{ code: number, headers: object, body: string, created: timestamp }}, callback: function)
+
+Store the given response by the given URL (key), please make sure to store the response object exactly in the same way you've got it.
+
+### purge(url: string, callback: function)
+
+Purge the response according to the given URL (key) from your cache store.
 
 ## Running Tests
 
