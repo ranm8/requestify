@@ -29,7 +29,7 @@ describe('Request', function() {
                     headers: headers,
                     dataType: 'json',
                     cookies: {},
-                    auth: {},
+                    auth: {}
                 });
 
             expect(request.url).to.equal(url);
@@ -109,7 +109,7 @@ describe('Request', function() {
                     },
                     request = new Request('http://www.wix.com', {
                         method: 'GET',
-                        body: params
+                        params: params
                     });
 
                 expect(request.getUri()).to.equal('/?' + queryString.encode(params));
@@ -123,7 +123,7 @@ describe('Request', function() {
                     path = '/?anakin=skywalker',
                     request = new Request('http://www.wix.com' + path, {
                         method: 'GET',
-                        body: params
+                        params: params
                     });
 
                 expect(request.getUri()).to.equal(path + '&' + queryString.encode(params));
