@@ -109,25 +109,33 @@ describe('Requestify', function() {
         });
 
         describe('#get()', function() {
-            it('should call #request() with then given body and method GET', function() {
-                requestify.get('http://www.wix.com', {
+            it('should call #request() with then given url, cookies and method GET', function() {
+                requestify.get('http://www.example.com', {
                     cookies: {
                         key: 'val'
                     }
                 });
 
-                expect(requestify.request.calledWith('http://www.wix.com', {
+                expect(requestify.request.calledWith('http://www.example.com', {
                     method: 'GET',
                     cookies: {
                         key: 'val'
                     }
                 })).to.equal(true);
             });
+
+            it('should call #request with the given url and method GET only', function() {
+                requestify.get('http://www.example.com');
+
+                expect(requestify.request.calledWith('http://www.example.com', {
+                    method: 'GET'
+                }));
+            });
         });
 
         describe('#post()', function() {
             it('should call #request() with then given body and method POST', function() {
-                requestify.post('http://www.wix.com', {
+                requestify.post('http://www.example.com', {
                     foo: 'bar'
                 }, {
                     cookies: {
@@ -135,7 +143,7 @@ describe('Requestify', function() {
                     }
                 });
 
-                expect(requestify.request.calledWith('http://www.wix.com', {
+                expect(requestify.request.calledWith('http://www.example.com', {
                     method: 'POST',
                     cookies: {
                         key: 'val'
@@ -145,11 +153,24 @@ describe('Requestify', function() {
                     }
                 })).to.equal(true);
             });
+
+            it('should call #request with the given url and body in method POST', function() {
+                requestify.post('http://www.example.com', {
+                    'foo': 'bar'
+                });
+
+                expect(requestify.request.calledWith('http://www.example.com', {
+                    method: 'POST',
+                    body: {
+                        'foo': 'bar'
+                    }
+                }));
+            });
         });
 
         describe('#put()', function() {
             it('should call #request() with then given body and method PUT', function() {
-                requestify.put('http://www.wix.com', {
+                requestify.put('http://www.example.com', {
                     foo: 'bar'
                 }, {
                     cookies: {
@@ -157,7 +178,7 @@ describe('Requestify', function() {
                     }
                 });
 
-                expect(requestify.request.calledWith('http://www.wix.com', {
+                expect(requestify.request.calledWith('http://www.example.com', {
                     method: 'PUT',
                     cookies: {
                         key: 'val'
@@ -171,13 +192,13 @@ describe('Requestify', function() {
 
         describe('#del()', function() {
             it('should call #request() with then given body and method DELETE', function() {
-                requestify.delete('http://www.wix.com', {
+                requestify.delete('http://www.example.com', {
                     cookies: {
                         key: 'val'
                     }
                 });
 
-                expect(requestify.request.calledWith('http://www.wix.com', {
+                expect(requestify.request.calledWith('http://www.example.com', {
                     method: 'DELETE',
                     cookies: {
                         key: 'val'
@@ -188,13 +209,13 @@ describe('Requestify', function() {
 
         describe('#head()', function() {
             it('should call #request() with then given body and method HEAD', function() {
-                requestify.head('http://www.wix.com', {
+                requestify.head('http://www.example.com', {
                     body: {
                         key: 'val'
                     }
                 });
 
-                expect(requestify.request.calledWith('http://www.wix.com', {
+                expect(requestify.request.calledWith('http://www.example.com', {
                     method: 'HEAD',
                     body: {
                         key: 'val'
