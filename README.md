@@ -85,6 +85,9 @@ HTTP method to use, can be any valid HTTP method (e.g. POST, GET, DELETE, HEAD, 
 #### `body {object|string}`
 Can be either an object (key, val) or a string, will be formatted depending on the dataType property and served via request body.
 
+#### `params {object}`
+Object of key-value params, will be encoded to url encoded string and added as the request query string.
+
 #### `headers {object}` 
 (key, value) object of headers (some headers like content-length are set by default)
 
