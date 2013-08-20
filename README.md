@@ -69,7 +69,7 @@ You can implement your own cache transporters (@see docs below)
 Sets Redis client instance. Requestify will use that instance for caching responses.
 Please note, Requestify will NOT cache anything by default and caching is allowed only for GET requests (see @cache options for further info).
 
-PLEASE NOTE, this function is currently a shorthand for using `requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance));`
+PLEASE NOTE, this function is only a shorthand for using `requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance));`
 
 ```javascript
 var redis = require('redis');
