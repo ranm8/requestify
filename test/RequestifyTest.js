@@ -4,7 +4,7 @@ var mocha = require('mocha'),
     sinon = require('sinon'),
     expect = require('chai').expect,
     rewire = require('rewire'),
-    requestify = rewire('../lib/Requestify.js'),
+    requestify = rewire('../lib/requestify.js'),
     Q = require('q');
 
 describe('Requestify', function() {

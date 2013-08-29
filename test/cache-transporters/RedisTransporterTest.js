@@ -4,7 +4,7 @@ var mocha = require('mocha'),
     sinon = require('sinon'),
     expect = require('chai').expect,
     rewire = require('rewire'),
-    redisTransporter = rewire('../../lib/cache-transporters/RedisTransporter');
+    redisTransporter = rewire('../../lib/cache-transporters/redis-transporter');
 
 describe('RedisTransporter', function() {
 

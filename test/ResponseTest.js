@@ -4,7 +4,7 @@ var mocha = require('mocha'),
     sinon = require('sinon'),
     expect = require('chai').expect,
     rewire = require('rewire'),
-    Response = rewire('../lib/Response.js');
+    Response = rewire('../lib/response.js');
 
 describe('Response', function() {
 

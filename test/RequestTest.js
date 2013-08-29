@@ -4,7 +4,7 @@ var mocha = require('mocha'),
     sinon = require('sinon'),
     expect = require('chai').expect,
     rewire = require('rewire'),
-    Request = rewire('../lib/Request.js'),
+    Request = rewire('../lib/request.js'),
     queryString = require('querystring');
 
 describe('Request', function() {
