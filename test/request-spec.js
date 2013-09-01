@@ -84,6 +84,20 @@ describe('Request', function() {
             });
         });
 
+        describe('#getPath()', function() {
+            it('should be set to the given path option value', function() {
+                var request = new Request('http://www.google.com:8080/hello/world', { method: 'GET', path: 'http://www.google.com/foo/bar' });
+
+                expect(request.getPath()).to.equal('http://www.google.com/foo/bar');
+            });
+
+            it('should be set to null, path not given', function() {
+                var request = new Request('http://www.google.com:8080/hello/world', { method: 'GET' });
+
+                expect(request.getPath()).to.be.null;
+            });
+        });
+
         describe('#getHost()', function() {
             it('Host should be a string', function() {
                 expect(request.getHost()).to.be.a('string');
