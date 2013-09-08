@@ -1,7 +1,7 @@
 {
     "name": "requestify",
     "description": "Simplifies node HTTP request making (HTTP client) with caching support.",
-    "version": "0.1.14",
+    "version": "0.1.15",
     "scripts": {
         "test": "mocha -R spec test/**/*.js test/*.js"
     },
