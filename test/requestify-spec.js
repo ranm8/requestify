@@ -190,7 +190,7 @@ describe('Requestify', function() {
             });
         });
 
-        describe('#del()', function() {
+        describe('#delete()', function() {
             it('should call #request() with then given body and method DELETE', function() {
                 requestify.delete('http://www.example.com', {
                     cookies: {

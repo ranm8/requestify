@@ -14,12 +14,21 @@ chai.use(require('sinon-chai'));
 
 describe('WinstonAdapter', function() {
 
+    /**
+     * Winston mock
+     */
     var winstonMock,
 
+        /**
+         * General message mock
+         */
         mockMessage = {
             message: 'hey'
         },
 
+        /**
+         * Instance of the adapter object
+         */
         adapterInstance;
 
     describe('configuration', function() {
