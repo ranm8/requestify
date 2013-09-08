@@ -133,5 +133,27 @@ describe('Logger', function() {
                 expect(adapter.debug.calledWith(objectMessage));
             });
         });
+
+        describe('#logLevel()', function() {
+            it('should be 0 (error) by default', function() {
+                expect(logger.logLevel()).to.equal(0);
+            });
+
+            it('should throw an error if an invalid logging level was given', function() {
+                expect(function() {
+                    logger.logLevel(4);
+                }).to.throw('4 is not a valid logging level');
+            });
+
+            it('should return itself if log level was set successfully', function() {
+                expect(logger.logLevel(2)).to.have.property('logLevel');
+            });
+
+            it('should return the current logging level I\'ve set after changing the log level successfully', function() {
+                logger.logLevel(1);
+
+                expect(logger.logLevel()).to.equal(1);
+            });
+        });
     });
 });
