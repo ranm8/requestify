@@ -99,6 +99,100 @@ describe('Requestify', function() {
         });
     });
 
+    describe('Cache Validation', function () {
+        var qStub,
+            cacheStub,
+            defer;
+        var oldDate = Date;
+
+        beforeEach(function () {
+            qStub = {
+                defer: function () {
+                    defer = sinon.stub({
+                        promise: 1,
+                        resolve: function () {}
+                    });
+                    return defer;
+                }
+            };
+            requestify.__set__('Q', qStub);
+
+            cacheStub = {
+                isTransportAvailable: function () { return true; },
+                set: sinon.spy(),
+                get: sinon.spy(function () {
+                    return {
+                        then: function (f) {
+                            f({ created: 0 });
+                            return this;
+                        },
+                        fail: function () {
+                            return this;
+                        }
+                    };
+                })
+            };
+
+            requestify.__set__('cache', cacheStub);
+
+            Date = {
+                now: function () {
+                    return 0;
+                }
+            };
+        });
+
+        afterEach(function () {
+            Date = oldDate;
+        });
+
+        describe('default implementation', function () {
+            it('skips cache layer if request.cache.cache is false', function () {
+                requestify.get('http://example.com', { cache: { cache: false } });
+                expect(cacheStub.get.callCount).to.equal(0);
+            });
+
+            it('consults cache layer if request.cache.cache is true', function () {
+                requestify.get('http://example.com', { cache: { cache: true } });
+                expect(cacheStub.get.called).to.be.true;
+            });
+
+            it('regards cached data as valid if request.cache.expires in the future', function () {
+                requestify.get('http://example.com', { cache: { cache: true, expires: 1 } });
+                expect(cacheStub.get.called).to.be.true;
+                expect(defer.resolve.called).to.be.true;
+            });
+
+            it('regards cached data as invalid if request.cache.expires is now', function () {
+                requestify.get('http://example.com', { cache: { cache: true, expires: 0 } });
+                expect(cacheStub.get.called).to.be.true;
+                expect(defer.resolve.called).to.be.false;
+            });
+
+            it('regards cached data as invalid if request.cache.expires in the past', function () {
+                requestify.get('http://example.com', { cache: { cache: true, expires: -1 } });
+                expect(cacheStub.get.called).to.be.true;
+                expect(defer.resolve.called).to.be.false;
+            });
+        });
+
+        describe('custom implementation', function () {
+            it('always discards cache', function () {
+                requestify.cacheCheck = sinon.stub().returns(false);
+                requestify.get('http://example.com', { cache: { cache: true, expires: 1 } });
+                expect(requestify.cacheCheck.called).to.be.true;
+                expect(defer.resolve.called).to.be.false;
+            });
+
+            it('always reuses cache', function () {
+                requestify.cacheCheck = sinon.stub().returns(true);
+                requestify.get('http://example.com', { cache: { cache: true, expires: 1 } });
+                expect(requestify.cacheCheck.called).to.be.true;
+                expect(defer.resolve.called).to.be.true;
+            });
+        });
+    });
+
     describe('Method specific public methods', function() {
         beforeEach(function() {
             requestify.request = sinon.stub();
