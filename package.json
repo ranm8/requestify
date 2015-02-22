@@ -20,7 +20,7 @@
         "cache",
         "HTTP caching"
     ],
-    "author": "Ran Mizrahi <ranm@cocycles.com>",
+    "author": "Ran Mizrahi <ran@cocycles.com>",
     "dependencies": {
         "q": "~0.9.3",
         "underscore": "~1.4.4",
