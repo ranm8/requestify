@@ -213,6 +213,7 @@ requestify.head('http://example.com').then(function(response) {
 	// Get the response code
 	response.getCode();
 });
+```
 
 ## Error Handling
 
