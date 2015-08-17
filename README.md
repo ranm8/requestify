@@ -213,6 +213,27 @@ requestify.head('http://example.com').then(function(response) {
 	// Get the response code
 	response.getCode();
 });
+
+## Error Handling
+
+to handle errors, pass a second function to the `then` call, for more information on how promises in the q library work read the [q library documentation](https://github.com/kriskowal/q).
+
+```javascript
+requestify.post(url, data).then(successFunction, errorFunction);
+```
+
+
+```javascript
+requestify.post('http://example.com', {
+		hello: 'world'
+})
+.then(function(response) {
+	// Get the response body
+	response.getBody();
+}, function(error){
+	// handle an error
+	console.log(error);
+});
 ```
 
 ## Custom Cache Transporters
