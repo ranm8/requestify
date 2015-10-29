@@ -215,6 +215,20 @@ requestify.head('http://example.com').then(function(response) {
 });
 ```
 
+## Handling Errors
+
+While the `.then()` callback is used for handling succesful responses, the .`fail()` callback is used for handling errors.
+
+``` javascript
+requestify.get('http://example.com')
+	.then(function(response) {
+		response.getCode(); // Some code between 200-299
+	})
+	.fail(function(response) {
+		response.getCode(); // Some error code such as, for example, 404
+	});
+```
+
 ## Custom Cache Transporters
 
 Using Requestify, you can implement your own cache transporters for using currently unsupported stores.
