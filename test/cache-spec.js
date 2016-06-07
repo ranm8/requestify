@@ -14,11 +14,15 @@ describe('Cache', function() {
         redisTransporterMock = {
             set: sinon.stub(),
             get: sinon.stub(),
-            purge: sinon.stub()
+            purge: sinon.stub(),
+            expire: sinon.stub()
         };
         deferMock = {
             resolve: sinon.stub(),
-            reject: sinon.stub()
+            reject: sinon.stub(),
+            promise: {
+              then: sinon.stub()
+            }
         };
 
         cache.__set__('redis', redisTransporterMock);
@@ -82,4 +86,3 @@ describe('Cache', function() {
         });
     });
 });
-

@@ -24,7 +24,7 @@
   "dependencies": {
     "q": "~0.9.3",
     "underscore": "~1.4.4",
-    "jquery": "~1.8.3"
+    "jquery": "~1.11"
   },
   "devDependencies": {
     "mocha": "~1.9.0",
