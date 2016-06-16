@@ -59,7 +59,8 @@ For using one of Requestify's core transporter use the core transporters object 
 For example:
 
 ```javascript
-requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance)); // Set the core Redis cache transporter
+requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance)); // Set the core Redis cache transporter, or
+requestify.cacheTransporter(coreCacheTransporters.mongo(myMongooseInstance)); // set the core Mongo cache transporter
 ```
 
 You can implement your own cache transporters (@see docs below)
