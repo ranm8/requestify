@@ -22,9 +22,9 @@
   ],
   "author": "Ran Mizrahi <ranm@codeoasis.com>",
   "dependencies": {
+    "jquery": "^3.1.0",
     "q": "~0.9.3",
-    "underscore": "~1.4.4",
-    "jquery": "~1.8.3"
+    "underscore": "~1.4.4"
   },
   "devDependencies": {
     "mocha": "~1.9.0",
