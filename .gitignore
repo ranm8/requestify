@@ -9,6 +9,6 @@ lib-cov
 *.pid
 *.swp
 *.swo
-node_modules/
-.idea/
+node_modules
+.idea
 requestify.iml
