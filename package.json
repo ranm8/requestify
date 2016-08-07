@@ -20,11 +20,11 @@
     "cache",
     "HTTP caching"
   ],
-  "author": "Ran Mizrahi <ranm@codeoasis.com>",
+  "author": "Ran Mizrahi <ranm@cocycles.com>",
   "dependencies": {
     "jquery": "^3.1.0",
     "q": "~0.9.3",
-    "underscore": "~1.4.4"
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "mocha": "~1.9.0",
