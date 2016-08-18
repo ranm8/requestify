@@ -59,6 +59,8 @@ For using one of Requestify's core transporter use the core transporters object 
 For example:
 
 ```javascript
+var coreCacheTransporters = requestify.coreCacheTransporters;
+requestify.cacheTransporter(coreCacheTransporters.inMemory()); // set simple in-memory caching 
 requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance)); // Set the core Redis cache transporter, or
 requestify.cacheTransporter(coreCacheTransporters.mongo(myMongooseInstance)); // set the core Mongo cache transporter
 ```
@@ -112,10 +114,12 @@ Set a timeout (in milliseconds) for the request.
 Requistify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:
 
 ```javascript
-{
-	cache: true, // Will set caching to true for this request.
-	expires: 3600 // Time for cache to expire in seconds
-}
+requestify.get('http://examples.com/api/foo', {
+    cache: {
+    	cache: true, // Will set caching to true for this request.
+    	expires: 3600 // Time for cache to expire in milliseconds
+    }
+});
 ```
 
 Caching will always be set to `false` by default.

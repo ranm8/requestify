@@ -10,5 +10,5 @@ lib-cov
 *.swp
 *.swo
 node_modules
-.idea
-requestify.iml
+.idea/
+*.iml
