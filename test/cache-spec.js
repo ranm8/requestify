@@ -35,8 +35,8 @@ describe('Cache', function() {
     });
 
     describe('#isTransportAvailable()', function() {
-        it('should return false, transport still not set', function() {
-            expect(cache.isTransportAvailable()).to.equal(false);
+        it('should initially return true, as now inMemory caching is enabled by default', function() {
+            expect(cache.isTransportAvailable()).to.equal(true);
         });
 
         it('should return true, transport was set', function() {
