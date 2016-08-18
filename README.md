@@ -53,14 +53,15 @@ requestify.setEncoding('utf8'); // utf8 is set by default anyway.
 
 ### requestify.cacheTransporter(cacheTransporter)
 
-Sets the cache transporter for Requestify's use. Requestify will use this transporter for caching desired flagged HTTP responses.
+Sets the cache transporter for Requestify's use. Requestify will use this transporter for caching the desired HTTP responses.
 For using one of Requestify's core transporter use the core transporters object (`coreCacheTransporters`).
+PLEASE NOTE: the inMemory() transporter is set by default.
 
 For example:
 
 ```javascript
 var coreCacheTransporters = requestify.coreCacheTransporters;
-requestify.cacheTransporter(coreCacheTransporters.inMemory()); // set simple in-memory caching 
+requestify.cacheTransporter(coreCacheTransporters.inMemory()); // set simple in-memory caching (set by default)
 requestify.cacheTransporter(coreCacheTransporters.redis(myRedisInstance)); // Set the core Redis cache transporter, or
 requestify.cacheTransporter(coreCacheTransporters.mongo(myMongooseInstance)); // set the core Mongo cache transporter
 ```
