@@ -128,11 +128,6 @@ describe('Requestify', function() {
                     done(e);
                 }
             });
-
-            // expect(success.called).to.equal(true);
-            // console.log('---- success?', success.called);
-            // expect(requestify.request.called).to.equal(true);
-            // expect(requestify.request.returned(cachedDataStub)).to.equal(true);
         });
     });
 
