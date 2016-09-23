@@ -3,7 +3,8 @@
   "description": "Simplifies node HTTP request making (HTTP client) with caching support.",
   "version": "0.2.3",
   "scripts": {
-    "test": "mocha -R spec test/**/*.js test/*.js"
+    "test": "mocha -R spec test/**/*.js test/*.js",
+    "test-watch": "mocha --watch -R spec test/**/*.js test/*.js"
   },
   "license": "MIT",
   "tags": [

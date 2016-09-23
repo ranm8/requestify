@@ -5,22 +5,31 @@ var mocha = require('mocha'),
     expect = require('chai').expect,
     rewire = require('rewire'),
     requestify = rewire('../lib/requestify.js'),
-    Q = require('q');
+    Q = require('q'),
+    Response = require('../lib/response');
 
 describe('Requestify', function() {
-    var cacheStub;
+    var cacheStub,
+        cachedDataStub;
 
     afterEach(function() {
         requestify.responseEncoding('utf8');
     });
 
     beforeEach(function() {
+        cachedDataStub = {
+            created: new Date().getTime(),
+            code: 200,
+            headers: 'Content-Type:application/javascript; charset=utf-8',
+            body: {rock: "yeah!"}
+        };
         cacheStub = {
             setCacheTransporter: sinon.stub(),
-            get: sinon.stub(),
+            get: sinon.stub().returns(Q.resolve(cachedDataStub)),
+            // get: sinon.stub(),
             set: sinon.stub(),
             purge: sinon.stub(),
-            isTransportAvailable: sinon.stub()
+            isTransportAvailable: function() { return true }
         };
 
         requestify.__set__('cache', cacheStub);
@@ -41,18 +50,19 @@ describe('Requestify', function() {
 
     describe('#request()', function() {
         var httpStub,
-            httpsStub,
-            cacheStub;
+            httpsStub;
 
         beforeEach(function() {
             httpStub = sinon.stub().returns({
                 on: function() {},
-                end: function() {}
+                end: function() {},
+                abort: function() {}
             });
 
             httpsStub = sinon.stub().returns({
                 on: function() {},
-                end: function() {}
+                end: function() {},
+                abort: function() {}
             });
 
             requestify.__set__('http', {
@@ -96,6 +106,33 @@ describe('Requestify', function() {
             expect(requestify.request('https://wix.com', {
                 method: 'POST'
             })).to.have.property('then');
+        });
+
+        it('Should return cached response before updating cache', function(done) {
+            var success = sinon.spy();
+            requestify.cacheTransporter();
+            var response = new Response(cachedDataStub.code, cachedDataStub.headers, cachedDataStub.body);
+
+            requestify.request('http://wix.com', {
+                method: 'GET',
+                cache: {
+                    cache: true,
+                    cachedFirst: true,
+                    expires: -1 // force update
+                }
+            }).then((response) => {
+                try {
+                    expect(response).to.eql(response);
+                    done();
+                } catch (e) {
+                    done(e);
+                }
+            });
+
+            // expect(success.called).to.equal(true);
+            // console.log('---- success?', success.called);
+            // expect(requestify.request.called).to.equal(true);
+            // expect(requestify.request.returned(cachedDataStub)).to.equal(true);
         });
     });
 
