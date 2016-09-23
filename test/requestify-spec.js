@@ -120,7 +120,7 @@ describe('Requestify', function() {
                     cachedFirst: true,
                     expires: -1 // force update
                 }
-            }).then((response) => {
+            }).then(function(response) {
                 try {
                     expect(response).to.eql(response);
                     done();
