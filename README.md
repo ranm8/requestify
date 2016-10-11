@@ -111,14 +111,15 @@ If null will be given, the body will be served as string.
 #### `timeout {number} `
 Set a timeout (in milliseconds) for the request.
 
-#### `cache {{ cache: boolean, expires: number }}`
+#### `cache {{ cache: boolean, expires: number, cachedFirst: boolean }}`
 Requistify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:
 
 ```javascript
 requestify.get('http://examples.com/api/foo', {
     cache: {
     	cache: true, // Will set caching to true for this request.
-    	expires: 3600 // Time for cache to expire in milliseconds
+    	expires: 3600, // Time for cache to expire in milliseconds
+    	cachedFirst: false // Will return cached data before updating cache
     }
 });
 ```
