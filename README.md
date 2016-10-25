@@ -111,6 +111,10 @@ If null will be given, the body will be served as string.
 #### `timeout {number} `
 Set a timeout (in milliseconds) for the request.
 
+#### `redirect {boolean} `
+Determines if should continue with redirects 
+
+
 #### `cache {{ cache: boolean, expires: number }}`
 Requistify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:
 

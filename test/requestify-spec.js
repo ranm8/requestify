@@ -237,5 +237,17 @@ describe('Requestify', function() {
                 expect(cacheStub.setCacheTransporter.called).to.equal(true);
             });
         });
+        describe('check redirect', function() {
+            it('should call #request() with redirect flag on and method GET', function() {
+                requestify.get('http://www.example.com', {
+                    redirect : true
+                });
+
+                expect(requestify.request.calledWith('http://www.example.com', {
+                    method: 'GET',
+                    redirect : true
+                })).to.equal(true);
+            });
+        });
     });
 });
