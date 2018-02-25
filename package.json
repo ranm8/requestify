@@ -1,40 +1,38 @@
 {
-  "name": "requestify",
-  "description": "Simplifies node HTTP request making (HTTP client) with caching support.",
-  "version": "0.2.5",
-  "scripts": {
-    "test": "mocha -R spec test/**/*.js test/*.js"
-  },
-  "license": "MIT",
-  "tags": [
-    "http",
-    "request",
-    "http-request",
-    "simple",
-    "web services",
-    "util",
-    "http client",
-    "client",
-    "request client",
-    "http cache",
-    "cache",
-    "HTTP caching"
-  ],
-  "author": "Ran Mizrahi <ranm@cocycles.com>",
-  "dependencies": {
-    "jquery": "^3.1.0",
-    "q": "^0.9.7",
-    "underscore": "^1.8.3"
-  },
-  "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^1.9.0",
-    "rewire": "^1.1.3",
-    "sinon": "^1.7.3",
-    "sinon-chai": "^2.4.0"
-  },
-  "repository": "https://github.com/ranm8/requestify.git",
-  "engines": {
-    "node": "~0.10.x"
-  }
+    "name": "requestify",
+    "description": "Simplifies node HTTP request making (HTTP client) with caching support.",
+    "version": "0.2.6",
+    "scripts": {
+        "test": "mocha -R spec test/**/*.js test/*.js"
+    },
+    "license": "MIT",
+    "tags": [
+        "http",
+        "request",
+        "http-request",
+        "simple",
+        "web services",
+        "util",
+        "http client",
+        "client",
+        "request client",
+        "http cache",
+        "cache",
+        "HTTP caching"
+    ],
+    "author": "Ran Mizrahi <ranm@cocycles.com>",
+    "dependencies": {
+        "q": "^0.9.7"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "mocha": "^1.9.0",
+        "rewire": "^1.1.3",
+        "sinon": "^1.7.3",
+        "sinon-chai": "^2.4.0"
+    },
+    "repository": "https://github.com/ranm8/requestify.git",
+    "engines": {
+        "node": "~0.10.x"
+    }
 }
