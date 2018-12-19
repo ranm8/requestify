@@ -32,8 +32,8 @@ requestify.post('http://example.com', {
 		hello: 'world'
 	})
 	.then(function(response) {
-		// Get the response body (JSON parsed or jQuery object for XMLs)
-		response.getBody();
+		// Get the response body (JSON parsed or string for XMLs)
+		response.getBody(); // if you want a jquery object, do it here
 		
 		// Get the raw response body
 		response.body;
@@ -116,7 +116,7 @@ Determines if should continue with redirects
 
 
 #### `cache {{ cache: boolean, expires: number }}`
-Requistify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:
+Requestify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:
 
 ```javascript
 requestify.get('http://examples.com/api/foo', {
@@ -138,7 +138,7 @@ Executes a custom request according to options object
 requestify.request('https://example.com/api/foo', {
 	method: 'POST',
 	body: {
-		foo: 'bar'
+		foo: 'bar',
 		bar: 'foo'
 	},
 	headers: {

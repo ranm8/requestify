@@ -12,3 +12,5 @@ lib-cov
 node_modules
 .idea/
 *.iml
+.vscode/
+*.code-workspace
