@@ -116,7 +116,7 @@ Determines if should continue with redirects
 
 
 #### `cache {{ cache: boolean, expires: number }}`
-Requistify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:
+Requestify has built-in Redis based caching mechanism. For using this feature, set the cache property to true using the following object:
 
 ```javascript
 requestify.get('http://examples.com/api/foo', {
